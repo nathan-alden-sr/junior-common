@@ -1,10 +1,8 @@
 using System.Runtime.Serialization;
 
-using JuniorCommon.Common;
-
 using NUnit.Framework;
 
-namespace JuniorCommon.UnitTests.Common
+namespace Junior.Common.UnitTests.Common
 {
 	public static class TypeExtensionsTester
 	{

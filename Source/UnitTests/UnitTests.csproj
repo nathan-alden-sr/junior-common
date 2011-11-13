@@ -8,8 +8,8 @@
     <ProjectGuid>{36F7112D-9170-4855-B0CB-9B65B5F00958}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JuniorCommon.UnitTests</RootNamespace>
-    <AssemblyName>JuniorCommon.UnitTests</AssemblyName>
+    <RootNamespace>Junior.Common.UnitTests</RootNamespace>
+    <AssemblyName>Junior.Common.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>

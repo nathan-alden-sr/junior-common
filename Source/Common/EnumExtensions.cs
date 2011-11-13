@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for enumerations.

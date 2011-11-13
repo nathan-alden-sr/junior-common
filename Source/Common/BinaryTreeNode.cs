@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// A node in a binary tree. <see cref="BinaryTreeNode{TBinaryTreeNode,TValue}"/> allows the consumer to specify the actual node type and

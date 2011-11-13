@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Maps between two values.

@@ -1,6 +1,6 @@
 using System.Xml.Linq;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for the <see cref="XContainer"/> class.

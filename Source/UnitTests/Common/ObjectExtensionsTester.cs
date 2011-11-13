@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-using JuniorCommon.Common;
-
 using NUnit.Framework;
 
-namespace JuniorCommon.UnitTests.Common
+namespace Junior.Common.UnitTests.Common
 {
 	public static class ObjectExtensionsTester
 	{

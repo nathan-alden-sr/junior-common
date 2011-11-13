@@ -1,3 +1,3 @@
 ﻿using System.Reflection;
 
-[assembly:AssemblyTitle("JuniorCommon.UnitTests")]
+[assembly:AssemblyTitle("Junior.Common.UnitTests")]

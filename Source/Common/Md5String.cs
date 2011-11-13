@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Compares and converts MD5 strings.

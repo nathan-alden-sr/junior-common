@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Retrieves random GUIDs. Currently, <see cref="GuidFactory"/> simply returns <see cref="Guid.NewGuid"/>.

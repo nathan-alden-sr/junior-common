@@ -8,8 +8,8 @@
     <ProjectGuid>{7B51EA7E-62CB-48E8-85CB-7ABBE0FC7647}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JuniorCommon.Common</RootNamespace>
-    <AssemblyName>JuniorCommon.Common</AssemblyName>
+    <RootNamespace>Junior.Common</RootNamespace>
+    <AssemblyName>Junior.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>
@@ -30,7 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\BuildOutput\Debug\JuniorCommon.Common.xml</DocumentationFile>
+    <DocumentationFile>..\BuildOutput\Debug\Junior.Common.xml</DocumentationFile>
     <WarningsAsErrors>1591</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -40,7 +40,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\BuildOutput\Release\JuniorCommon.Common.xml</DocumentationFile>
+    <DocumentationFile>..\BuildOutput\Release\Junior.Common.xml</DocumentationFile>
     <WarningsAsErrors>1591</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>

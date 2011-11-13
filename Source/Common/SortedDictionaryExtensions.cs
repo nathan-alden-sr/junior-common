@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for the <see cref="SortedDictionary{TKey,TValue}"/> type.

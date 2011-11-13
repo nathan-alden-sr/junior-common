@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Represents a way to map between two values.

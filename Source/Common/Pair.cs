@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// A pair of values.

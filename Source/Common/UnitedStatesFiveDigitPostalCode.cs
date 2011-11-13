@@ -1,6 +1,6 @@
 using System;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// A United States 5-digit postal code.

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// An exception thrown when a generic type argument is not supported by a method.

@@ -1,4 +1,4 @@
-namespace JuniorCommon.Common.Ranges
+namespace Junior.Common.Ranges
 {
 	/// <summary>
 	/// A range of <typeparamref name="T"/>.

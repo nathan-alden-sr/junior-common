@@ -1,4 +1,4 @@
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// MD5 string formats.

@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Allows conversion to and from <see cref="Guid"/> and an <see cref="Array"/> of <see cref="Byte"/>.

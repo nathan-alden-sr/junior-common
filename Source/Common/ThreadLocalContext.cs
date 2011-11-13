@@ -2,7 +2,7 @@ using System;
 
 // ReSharper disable StaticFieldInGenericType
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// A nestable per-thread context. Contexts must always be disposed when they are exited to ensure proper behavior.

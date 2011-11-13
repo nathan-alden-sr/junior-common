@@ -1,6 +1,6 @@
 using System;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Represents a way to retrieve random GUIDs.

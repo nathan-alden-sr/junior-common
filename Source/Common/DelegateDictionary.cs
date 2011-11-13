@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// A caching dictionary of <see cref="Func{T,TResult}"/> tracked by <typeparamref name="TKey"/>.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Provides the current system date and time in both local time and UTC time.

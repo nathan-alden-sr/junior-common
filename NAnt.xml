@@ -75,7 +75,7 @@
 		<mkdir dir="${ResultsDirectory}"/>
 	</target>
 	<target name="RunUnitTests">
-		<property name="UnitTestAssemblyPath" value="${SourceDirectory}\BuildOutput\${BuildConfiguration}\JuniorCommon.UnitTests.dll"/>
+		<property name="UnitTestAssemblyPath" value="${SourceDirectory}\BuildOutput\${BuildConfiguration}\Junior.Common.UnitTests.dll"/>
 		<call target="ExecuteNUnit"/>
 	</target>
 	<target name="ExecuteNUnit">

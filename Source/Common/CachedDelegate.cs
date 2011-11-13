@@ -1,6 +1,6 @@
 using System;
 
-namespace JuniorCommon.Common
+namespace Junior.Common
 {
 	/// <summary>
 	/// Invokes a delegate only if a provided key is different than the last execution.
