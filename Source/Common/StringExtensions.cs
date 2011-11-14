@@ -8,7 +8,7 @@ using System.Text;
 namespace Junior.Common
 {
 	/// <summary>
-	/// Extensions for the <see cref="string"/> class.
+	/// Extensions for the <see cref="string"/> type.
 	/// </summary>
 	public static class StringExtensions
 	{

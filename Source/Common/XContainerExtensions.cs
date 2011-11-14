@@ -3,7 +3,7 @@ using System.Xml.Linq;
 namespace Junior.Common
 {
 	/// <summary>
-	/// Extensions for the <see cref="XContainer"/> class.
+	/// Extensions for the <see cref="XContainer"/> type.
 	/// </summary>
 	public static class XContainerExtensions
 	{
