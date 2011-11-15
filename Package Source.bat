@@ -1,1 +1,0 @@
-Binaries\NAnt\NAnt.exe -buildfile:NAnt.xml PackageSource -D:BuildConfiguration=Debug -D:"Platform=Any CPU"
