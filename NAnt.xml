@@ -12,7 +12,6 @@
 	<property name="BuildOutputDirectory" value="${SourceDirectory}\BuildOutput\${BuildConfiguration}\${Platform}"/>
 	<property name="SolutionPath" value="${SourceDirectory}\${project::get-name()}.sln"/>
 	<property name="BinariesPackageName" value="${project::get-name()} Binaries - ${BuildConfiguration} - ${Platform}.zip"/>
-	<property name="SourcePackageName" value="${project::get-name()} Source.zip"/>
 	<property name="NUnitRunner" value="${BinariesDirectory}\NUnit\nunit-console.exe"/>
 
 	<!-- Version information -->
@@ -100,26 +99,6 @@
 				<include name="*.xml"/>
 				<exclude name="*nunit*"/>
 				<exclude name="*Rhino.Mocks*"/>
-			</fileset>
-		</zip>
-	</target>
-	<target name="PackageSource">
-		<delete file="${PackagesDirectory}\${SourcePackageName}" failonerror="false"/>
-		<zip zipfile="${PackagesDirectory}\${SourcePackageName}">
-			<fileset basedir="${TrunkDirectory}">
-				<include name="*.bat"/>
-				<include name="*.xml"/>
-				<include name="LICENSE"/>
-				<include name="README"/>
-			</fileset>
-			<fileset basedir="${TrunkDirectory}">
-				<include name="${BinariesDirectory}\**"/>
-			</fileset>
-			<fileset basedir="${TrunkDirectory}">
-				<include name="${SourceDirectory}/**/*.cs"/>
-				<include name="${SourceDirectory}/**/*.csproj"/>
-				<include name="${SourceDirectory}/**/*.sln"/>
-				<include name="${SourceDirectory}/**/*.snk"/>
 			</fileset>
 		</zip>
 	</target>
