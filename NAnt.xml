@@ -7,9 +7,9 @@
 	<property name="TrunkDirectory" value="${path::get-directory-name(project::get-buildfile-path())}"/>
 	<property name="BinariesDirectory" value="${TrunkDirectory}\Binaries"/>
 	<property name="PackagesDirectory" value="${TrunkDirectory}\Packages"/>
-	<property name="ResultsDirectory" value="${TrunkDirectory}\Results\${BuildConfiguration}\${Platform}"/>
+	<property name="ResultsDirectory" value="${TrunkDirectory}\Results\${BuildConfiguration}"/>
 	<property name="SourceDirectory" value="${TrunkDirectory}\Source"/>
-	<property name="BuildOutputDirectory" value="${SourceDirectory}\BuildOutput\${BuildConfiguration}\${Platform}"/>
+	<property name="BuildOutputDirectory" value="${SourceDirectory}\BuildOutput\${BuildConfiguration}"/>
 	<property name="SolutionPath" value="${SourceDirectory}\${project::get-name()}.sln"/>
 	<property name="BinariesPackageName" value="${project::get-name()} Binaries - ${BuildConfiguration} - ${Platform}.zip"/>
 	<property name="NUnitRunner" value="${BinariesDirectory}\NUnit\nunit-console.exe"/>
@@ -74,7 +74,7 @@
 		<mkdir dir="${ResultsDirectory}"/>
 	</target>
 	<target name="RunUnitTests">
-		<property name="UnitTestAssemblyPath" value="${SourceDirectory}\BuildOutput\${BuildConfiguration}\Junior.Common.UnitTests.dll"/>
+		<property name="UnitTestAssemblyPath" value="${BuildOutputDirectory}\Junior.Common.UnitTests.dll"/>
 		<call target="ExecuteNUnit"/>
 	</target>
 	<target name="ExecuteNUnit">
@@ -93,7 +93,7 @@
 	<target name="PackageBinaries">
 		<delete file="${PackagesDirectory}\${BinariesPackageName}" failonerror="false"/>
 		<zip zipfile="${PackagesDirectory}\${BinariesPackageName}">
-			<fileset basedir="${SourceDirectory}\BuildOutput\${BuildConfiguration}">
+			<fileset basedir="${BuildOutputDirectory}">
 				<include name="*.dll"/>
 				<include name="*.pdb"/>
 				<include name="*.xml"/>
