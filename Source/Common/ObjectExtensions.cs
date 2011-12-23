@@ -35,12 +35,10 @@ namespace Junior.Common
 					{
 						return Enum.IsDefined(convertType, value) ? (T)value : (T?)null;
 					}
-					if (value is string)
-					{
-						return ((string)value).ToEnum<T>();
-					}
 
-					return null;
+					var valueAsString = value as string;
+
+					return valueAsString != null ? valueAsString.ToEnum<T>() : null;
 				}
 
 				return (T?)System.Convert.ChangeType(value, convertType);

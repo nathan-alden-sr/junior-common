@@ -107,7 +107,7 @@ namespace Junior.Common
 		{
 			get
 			{
-				return RemovedElements.Count() == 0 && AddedElements.Count() == 0;
+				return !RemovedElements.Any() && !AddedElements.Any();
 			}
 		}
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Junior.Common
@@ -39,7 +40,7 @@ namespace Junior.Common
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="postalCode"/> is null.</exception>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="postalCode"/> does not match <paramref name="regexPattern"/>.</exception>
 		protected PostalCode(int postalCode, string regexPattern, string argumentExceptionMessage)
-			: this(postalCode.ToString(), regexPattern, argumentExceptionMessage)
+			: this(postalCode.ToString(CultureInfo.InvariantCulture), regexPattern, argumentExceptionMessage)
 		{
 		}
 
@@ -52,7 +53,7 @@ namespace Junior.Common
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(PostalCode<T> other)
 		{
-			return other == null ? -1 : _postalCode.CompareTo(other._postalCode);
+			return other != null ? String.CompareOrdinal(_postalCode, other._postalCode) : -1;
 		}
 
 		/// <summary>

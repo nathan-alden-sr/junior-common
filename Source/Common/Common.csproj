@@ -54,10 +54,12 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BinaryGuid.cs" />
+    <Compile Include="DoubleToLong.cs" />
     <Compile Include="DelegateDictionary.cs" />
     <Compile Include="CachedDelegate.cs" />
     <Compile Include="InvalidGenericTypeArgumentException.cs" />
     <Compile Include="NullableCachedDelegate.cs" />
+    <Compile Include="FloatToInt.cs" />
     <Compile Include="StopwatchContext.cs" />
     <Compile Include="UnitedStatesNineDigitPostalCode.cs" />
     <Compile Include="Enum.cs" />

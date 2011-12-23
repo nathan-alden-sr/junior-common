@@ -43,7 +43,7 @@ namespace Junior.Common
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(EmailAddress other)
 		{
-			return other == null ? -1 : _emailAddress.CompareTo(other._emailAddress);
+			return other == null ? -1 : String.CompareOrdinal(_emailAddress, other._emailAddress);
 		}
 
 		/// <summary>

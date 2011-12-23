@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Junior.Common
@@ -107,54 +108,44 @@ namespace Junior.Common
 			return _guid == other;
 		}
 
-		private static void ValidateGuidBytes(byte[] other)
-		{
-			other.ThrowIfNull("other");
-
-			if (other.Length != 16)
-			{
-				throw new ArgumentException("guidBytes must be exactly 16 bytes.", "other");
-			}
-		}
-
 		/// <summary>
 		/// Implicitly converts from a <see cref="BinaryGuid"/> to a <see cref="Guid"/>.
 		/// </summary>
-		/// <param name="binaryGuid">A <see cref="BinaryGuid"/>.</param>
+		/// <param name="value">A <see cref="BinaryGuid"/>.</param>
 		/// <returns>A <see cref="Guid"/> representing the specified <see cref="BinaryGuid"/>.</returns>
-		public static implicit operator Guid(BinaryGuid binaryGuid)
+		public static implicit operator Guid(BinaryGuid value)
 		{
-			return binaryGuid._guid;
+			return value._guid;
 		}
 
 		/// <summary>
 		/// Implicitly converts from a <see cref="BinaryGuid"/> to an <see cref="Array"/> of <see cref="Byte"/>.
 		/// </summary>
-		/// <param name="binaryGuid">A <see cref="BinaryGuid"/>.</param>
+		/// <param name="value">A <see cref="BinaryGuid"/>.</param>
 		/// <returns>An <see cref="Array"/> of <see cref="Byte"/> representing the specified <see cref="BinaryGuid"/>.</returns>
-		public static implicit operator byte[](BinaryGuid binaryGuid)
+		public static implicit operator byte[](BinaryGuid value)
 		{
-			return binaryGuid._guid.ToByteArray();
+			return value._guid.ToByteArray();
 		}
 
 		/// <summary>
 		/// Implicitly converts from a <see cref="Guid"/> to a <see cref="BinaryGuid"/>.
 		/// </summary>
-		/// <param name="guid">A <see cref="Guid"/>.</param>
+		/// <param name="value">A <see cref="Guid"/>.</param>
 		/// <returns>A <see cref="BinaryGuid"/> representing the specified <see cref="Guid"/>.</returns>
-		public static implicit operator BinaryGuid(Guid guid)
+		public static implicit operator BinaryGuid(Guid value)
 		{
-			return new BinaryGuid(guid);
+			return new BinaryGuid(value);
 		}
 
 		/// <summary>
 		/// Implicitly converts from an <see cref="Array"/> of <see cref="Byte"/> to a <see cref="BinaryGuid"/>.
 		/// </summary>
-		/// <param name="guidBytes">An <see cref="Array"/> of <see cref="Byte"/>.</param>
+		/// <param name="value">An <see cref="Array"/> of <see cref="Byte"/>.</param>
 		/// <returns>A <see cref="BinaryGuid"/> representing the specified <see cref="Array"/> of <see cref="Byte"/>.</returns>
-		public static implicit operator BinaryGuid(byte[] guidBytes)
+		public static implicit operator BinaryGuid(byte[] value)
 		{
-			return new BinaryGuid(guidBytes);
+			return new BinaryGuid(value);
 		}
 
 		/// <summary>
@@ -229,6 +220,16 @@ namespace Junior.Common
 		public override string ToString()
 		{
 			return _guid.ToString();
+		}
+
+		private static void ValidateGuidBytes(ICollection<byte> other)
+		{
+			other.ThrowIfNull("other");
+
+			if (other.Count != 16)
+			{
+				throw new ArgumentException("value must be exactly 16 bytes.", "other");
+			}
 		}
 	}
 }

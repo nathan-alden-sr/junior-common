@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Junior.Common
 {
@@ -104,31 +105,31 @@ namespace Junior.Common
 		/// <summary>
 		/// Implicitly converts from a <see cref="PreciseDateTime"/> to a <see cref="long"/>.
 		/// </summary>
-		/// <param name="preciseDateTime">A <see cref="PreciseDateTime"/>.</param>
+		/// <param name="value">A <see cref="PreciseDateTime"/>.</param>
 		/// <returns>A <see cref="long"/> representing the specified <see cref="PreciseDateTime"/>.</returns>
-		public static implicit operator long(PreciseDateTime preciseDateTime)
+		public static implicit operator long(PreciseDateTime value)
 		{
-			return preciseDateTime._utcFileTime;
+			return value._utcFileTime;
 		}
 
 		/// <summary>
 		/// Implicitly converts from a <see cref="PreciseDateTime"/> to a <see cref="DateTime"/>.
 		/// </summary>
-		/// <param name="preciseDateTime">A <see cref="PreciseDateTime"/>.</param>
+		/// <param name="value">A <see cref="PreciseDateTime"/>.</param>
 		/// <returns>A <see cref="DateTime"/> representing the specified <see cref="PreciseDateTime"/>.</returns>
-		public static implicit operator DateTime(PreciseDateTime preciseDateTime)
+		public static implicit operator DateTime(PreciseDateTime value)
 		{
-			return DateTime.FromFileTimeUtc(preciseDateTime._utcFileTime);
+			return DateTime.FromFileTimeUtc(value._utcFileTime);
 		}
 
 		/// <summary>
 		/// Implicitly converts from a <see cref="DateTime"/> to a <see cref="PreciseDateTime"/>.
 		/// </summary>
-		/// <param name="dateTime">A <see cref="DateTime"/>.</param>
+		/// <param name="value">A <see cref="DateTime"/>.</param>
 		/// <returns>A <see cref="PreciseDateTime"/> representing the specified <see cref="DateTime"/>.</returns>
-		public static implicit operator PreciseDateTime(DateTime dateTime)
+		public static implicit operator PreciseDateTime(DateTime value)
 		{
-			return new PreciseDateTime(dateTime);
+			return new PreciseDateTime(value);
 		}
 
 		/// <summary>
@@ -194,7 +195,7 @@ namespace Junior.Common
 		/// <filterpriority>2</filterpriority>
 		public override string ToString()
 		{
-			return _utcFileTime.ToString();
+			return _utcFileTime.ToString(CultureInfo.InvariantCulture);
 		}
 	}
 }

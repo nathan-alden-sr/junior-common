@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace Junior.Common
 {
@@ -26,7 +27,7 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="postalCode">A postal code.</param>
 		public UnitedStatesNineDigitPostalCode(int postalCode)
-			: this(postalCode.ToString())
+			: this(postalCode.ToString(CultureInfo.InvariantCulture))
 		{
 		}
 

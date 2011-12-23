@@ -39,7 +39,7 @@ namespace Junior.Common
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(Md5String other)
 		{
-			return other == null ? -1 : _md5.CompareTo(other._md5);
+			return other != null ? String.CompareOrdinal(_md5, other._md5) : -1;
 		}
 
 		/// <summary>

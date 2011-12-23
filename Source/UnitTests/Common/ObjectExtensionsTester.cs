@@ -33,9 +33,7 @@ namespace Junior.Common.UnitTests.Common
 			[Test]
 			public void Must_throw_exception()
 			{
-				object value = null;
-
-				Assert.Throws<ArgumentNullException>(() => value.ThrowIfNull("value"));
+				Assert.Throws<ArgumentNullException>(() => ((object)null).ThrowIfNull("value"));
 			}
 		}
 
@@ -974,7 +972,7 @@ namespace Junior.Common.UnitTests.Common
 			[Test]
 			public void Must_return_lambda_expression()
 			{
-				Assert.That("value".IfNotNull(@class => @class.ToString()), Is.EqualTo("value"));
+				Assert.That("value".IfNotNull(@class => @class.ToString(CultureInfo.InvariantCulture)), Is.EqualTo("value"));
 			}
 		}
 
