@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Junior.Common
 {
@@ -7,7 +8,7 @@ namespace Junior.Common
 	/// </summary>
 	/// <typeparam name="TFirst"></typeparam>
 	/// <typeparam name="TSecond"></typeparam>
-	public interface IPairMapper<TFirst, TSecond> : IEnumerable<Pair<TFirst, TSecond>>
+	public interface IPairMapper<TFirst, TSecond> : IEnumerable<Tuple<TFirst, TSecond>>
 	{
 		/// <summary>
 		/// Maps the specified first value to its matching second value.

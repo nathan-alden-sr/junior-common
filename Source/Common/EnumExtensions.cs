@@ -23,8 +23,12 @@ namespace Junior.Common
 				throw new InvalidGenericTypeArgumentException("Generic type must be an enum.", "T");
 			}
 
+			// ReSharper disable SuspiciousTypeConversion.Global
+			// ReSharper disable ExpressionIsAlwaysNull
 			var enumAsEnum = @enum as Enum;
 			var flagAsEnum = flag as Enum;
+			// ReSharper restore ExpressionIsAlwaysNull
+			// ReSharper restore SuspiciousTypeConversion.Global
 
 			return enumAsEnum.HasFlag(flagAsEnum);
 		}

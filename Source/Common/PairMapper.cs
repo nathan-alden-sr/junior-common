@@ -10,7 +10,7 @@ namespace Junior.Common
 	/// </summary>
 	public class PairMapper<TFirst, TSecond> : IPairMapper<TFirst, TSecond>
 	{
-		private readonly List<Pair<TFirst, TSecond>> _mapper = new List<Pair<TFirst, TSecond>>();
+		private readonly List<Tuple<TFirst, TSecond>> _mapper = new List<Tuple<TFirst, TSecond>>();
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PairMapper{TFirst,TSecond}"/> class. The instance initially contains no pairs.
@@ -22,8 +22,8 @@ namespace Junior.Common
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PairMapper{TFirst,TSecond}"/> class.
 		/// </summary>
-		/// <param name="pairs">An array of <see cref="Pair{TFirst,TSecond}"/> instances with which to populate the pair mapper.</param>
-		public PairMapper(params Pair<TFirst, TSecond>[] pairs)
+		/// <param name="pairs">An array of <see cref="Tuple{TFirst,TSecond}"/> instances with which to populate the pair mapper.</param>
+		public PairMapper(params Tuple<TFirst, TSecond>[] pairs)
 		{
 			pairs.ThrowIfNull("pairs");
 
@@ -33,8 +33,8 @@ namespace Junior.Common
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PairMapper{TFirst,TSecond}"/> class.
 		/// </summary>
-		/// <param name="pairs">An enumerable of <see cref="Pair{TFirst,TSecond}"/> instances with which to populate the pair mapper.</param>
-		public PairMapper(IEnumerable<Pair<TFirst, TSecond>> pairs)
+		/// <param name="pairs">An enumerable of <see cref="Tuple{TFirst,TSecond}"/> instances with which to populate the pair mapper.</param>
+		public PairMapper(IEnumerable<Tuple<TFirst, TSecond>> pairs)
 		{
 			pairs.ThrowIfNull("pairs");
 
@@ -48,7 +48,7 @@ namespace Junior.Common
 		/// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
 		/// </returns>
 		/// <filterpriority>1</filterpriority>
-		public IEnumerator<Pair<TFirst, TSecond>> GetEnumerator()
+		public IEnumerator<Tuple<TFirst, TSecond>> GetEnumerator()
 		{
 			return _mapper.GetEnumerator();
 		}
@@ -88,7 +88,7 @@ namespace Junior.Common
 		{
 			try
 			{
-				return _mapper.Where(pair => Equals(pair.First, first)).Select(pair => pair.Second).First();
+				return _mapper.Where(pair => Equals(pair.Item1, first)).Select(pair => pair.Item2).First();
 			}
 			catch (InvalidOperationException)
 			{
@@ -106,7 +106,7 @@ namespace Junior.Common
 		/// <returns>The matching second value.</returns>
 		public TSecond MapFirst(TFirst first, TSecond defaultValue)
 		{
-			object second = _mapper.Where(pair => Equals(pair.First, first)).Select(pair => pair.Second).FirstOrDefault();
+			object second = _mapper.Where(pair => Equals(pair.Item1, first)).Select(pair => pair.Item2).FirstOrDefault();
 
 			return (TSecond)(second ?? defaultValue);
 		}
@@ -141,7 +141,7 @@ namespace Junior.Common
 		{
 			try
 			{
-				return _mapper.Where(pair => Equals(pair.Second, second)).Select(pair => pair.First).First();
+				return _mapper.Where(pair => Equals(pair.Item2, second)).Select(pair => pair.Item1).First();
 			}
 			catch (InvalidOperationException)
 			{
@@ -159,7 +159,7 @@ namespace Junior.Common
 		/// <returns>The matching first value.</returns>
 		public TFirst MapSecond(TSecond second, TSecond defaultValue)
 		{
-			object first = _mapper.Where(pair => Equals(pair.Second, second)).Select(pair => pair.First).FirstOrDefault();
+			object first = _mapper.Where(pair => Equals(pair.Item2, second)).Select(pair => pair.Item1).FirstOrDefault();
 
 			return (TFirst)(first ?? defaultValue);
 		}
@@ -171,7 +171,7 @@ namespace Junior.Common
 		/// <param name="second">A value.</param>
 		public void Add(TFirst first, TSecond second)
 		{
-			_mapper.Add(new Pair<TFirst, TSecond>(first, second));
+			_mapper.Add(new Tuple<TFirst, TSecond>(first, second));
 		}
 	}
 }
