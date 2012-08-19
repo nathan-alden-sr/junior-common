@@ -114,9 +114,7 @@
 		</copy>
 		<copy todir="${ReleaseStagingBinDirectory}">
 			<fileset basedir="${path::combine(SourceDirectory, path::combine('Common', path::combine('bin', BuildConfiguration)))}">
-				<include name="*.dll"/>
-				<include name="*.pdb"/>
-				<include name="*.xml"/>
+				<include name="Junior.Common.*"/>
 			</fileset>
 		</copy>
 	</target>

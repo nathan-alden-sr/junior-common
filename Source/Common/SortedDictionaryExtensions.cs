@@ -20,7 +20,7 @@ namespace Junior.Common
 			sortedDictionary.ThrowIfNull("sortedDictionary");
 			pairs.ThrowIfNull("pairs");
 
-			foreach (var pair in pairs)
+			foreach (KeyValuePair<TKey, TValue> pair in pairs)
 			{
 				sortedDictionary.Add(pair.Key, pair.Value);
 			}
@@ -38,7 +38,7 @@ namespace Junior.Common
 			sortedDictionary.ThrowIfNull("sortedDictionary");
 			pairs.ThrowIfNull("pairs");
 
-			foreach (var pair in pairs)
+			foreach (KeyValuePair<TKey, TValue> pair in pairs)
 			{
 				sortedDictionary[pair.Key] = pair.Value;
 			}

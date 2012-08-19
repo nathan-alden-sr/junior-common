@@ -1,7 +1,5 @@
 using System;
 
-using NUnit.Framework;
-
 namespace Junior.Common.UnitTests.Common
 {
 	public static class UnitedStatesFiveDigitPostalCodeTester

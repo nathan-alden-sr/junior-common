@@ -20,7 +20,7 @@ namespace Junior.Common
 			dictionary.ThrowIfNull("dictionary");
 			pairs.ThrowIfNull("pairs");
 
-			foreach (var pair in pairs)
+			foreach (KeyValuePair<TKey, TValue> pair in pairs)
 			{
 				dictionary.Add(pair.Key, pair.Value);
 			}
@@ -38,7 +38,7 @@ namespace Junior.Common
 			dictionary.ThrowIfNull("dictionary");
 			pairs.ThrowIfNull("pairs");
 
-			foreach (var pair in pairs)
+			foreach (KeyValuePair<TKey, TValue> pair in pairs)
 			{
 				dictionary[pair.Key] = pair.Value;
 			}

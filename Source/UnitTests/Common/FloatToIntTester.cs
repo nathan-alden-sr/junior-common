@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-
-namespace Junior.Common.UnitTests.Common
+﻿namespace Junior.Common.UnitTests.Common
 {
 	public static class FloatToIntTester
 	{

@@ -2,8 +2,6 @@
 
 using Junior.Common.Ranges;
 
-using NUnit.Framework;
-
 namespace Junior.Common.UnitTests.Common.Ranges
 {
 	public static class StartLessThanOrEqualToEndRangeTester

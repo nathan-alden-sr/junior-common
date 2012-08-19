@@ -1,8 +1,6 @@
 using System;
 using System.Threading;
 
-using NUnit.Framework;
-
 namespace Junior.Common.UnitTests.Common
 {
 	public static class StopwatchContextTester

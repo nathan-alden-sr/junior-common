@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using NUnit.Framework;
-
 namespace Junior.Common.UnitTests.Common
 {
 	public static class EnumerableSynchronizerTester

@@ -1,7 +1,5 @@
 using System.Runtime.Serialization;
 
-using NUnit.Framework;
-
 namespace Junior.Common.UnitTests.Common
 {
 	public static class TypeExtensionsTester
@@ -75,6 +73,26 @@ namespace Junior.Common.UnitTests.Common
 		}
 
 		[TestFixture]
+		public class When_determining_if_interface_extends_closed_generic_interface_and_interface_does_extend_closed_generic_interface
+		{
+			[Test]
+			public void Must_return_true()
+			{
+				Assert.That(typeof(IGenericDescendant).ExtendsInterface(typeof(IGenericAncestor<object>)), Is.True);
+			}
+		}
+
+		[TestFixture]
+		public class When_determining_if_interface_extends_closed_generic_interface_and_interface_does_not_extend_closed_generic_interface
+		{
+			[Test]
+			public void Must_return_false()
+			{
+				Assert.That(typeof(IGenericDescendant).ExtendsInterface(typeof(ITestGeneric1<object>)), Is.False);
+			}
+		}
+
+		[TestFixture]
 		public class When_determining_if_interface_extends_open_generic_interface_and_interface_does_extend_open_generic_interface
 		{
 			[Test]
@@ -95,22 +113,23 @@ namespace Junior.Common.UnitTests.Common
 		}
 
 		[TestFixture]
-		public class When_determining_if_interface_extends_closed_generic_interface_and_interface_does_extend_closed_generic_interface
+		public class When_determining_if_type_implements_closed_generic_interface_and_type_does_implement_closed_generic_interface
 		{
 			[Test]
 			public void Must_return_true()
 			{
-				Assert.That(typeof(IGenericDescendant).ExtendsInterface(typeof(IGenericAncestor<object>)), Is.True);
+				Assert.That(typeof(TestGeneric1).ImplementsInterface(typeof(ITestGeneric1<object>)), Is.True);
 			}
 		}
 
 		[TestFixture]
-		public class When_determining_if_interface_extends_closed_generic_interface_and_interface_does_not_extend_closed_generic_interface
+		public class When_determining_if_type_implements_closed_generic_interface_and_type_does_not_implement_closed_generic_interface
 		{
 			[Test]
 			public void Must_return_false()
 			{
-				Assert.That(typeof(IGenericDescendant).ExtendsInterface(typeof(ITestGeneric1<object>)), Is.False);
+				Assert.That(typeof(TestGeneric2).ImplementsInterface(typeof(ITestGeneric1<object>)), Is.False);
+				Assert.That(typeof(object).ImplementsInterface(typeof(ITestGeneric1<object>)), Is.False);
 			}
 		}
 
@@ -152,27 +171,6 @@ namespace Junior.Common.UnitTests.Common
 			{
 				Assert.That(typeof(TestGeneric2).ImplementsInterface(typeof(ITestGeneric1<>)), Is.False);
 				Assert.That(typeof(object).ImplementsInterface(typeof(ITestGeneric1<>)), Is.False);
-			}
-		}
-
-		[TestFixture]
-		public class When_determining_if_type_implements_closed_generic_interface_and_type_does_implement_closed_generic_interface
-		{
-			[Test]
-			public void Must_return_true()
-			{
-				Assert.That(typeof(TestGeneric1).ImplementsInterface(typeof(ITestGeneric1<object>)), Is.True);
-			}
-		}
-
-		[TestFixture]
-		public class When_determining_if_type_implements_closed_generic_interface_and_type_does_not_implement_closed_generic_interface
-		{
-			[Test]
-			public void Must_return_false()
-			{
-				Assert.That(typeof(TestGeneric2).ImplementsInterface(typeof(ITestGeneric1<object>)), Is.False);
-				Assert.That(typeof(object).ImplementsInterface(typeof(ITestGeneric1<object>)), Is.False);
 			}
 		}
 	}

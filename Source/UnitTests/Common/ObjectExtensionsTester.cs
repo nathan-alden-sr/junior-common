@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-using NUnit.Framework;
-
 namespace Junior.Common.UnitTests.Common
 {
 	public static class ObjectExtensionsTester
@@ -1015,11 +1013,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_get_correct_item()
 			{
 				IEnumerable<string> items = new[]
-				                            	{
-				                            		"Test",
-				                            		"By",
-				                            		"Length"
-				                            	};
+					{
+						"Test",
+						"By",
+						"Length"
+					};
 
 				Assert.That(items.MaxBy(arg => arg.Length), Is.EqualTo("Length"));
 			}
@@ -1032,11 +1030,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_get_correct_item()
 			{
 				IEnumerable<string> items = new[]
-				                            	{
-				                            		"Test",
-				                            		"By",
-				                            		"Length"
-				                            	};
+					{
+						"Test",
+						"By",
+						"Length"
+					};
 
 				Assert.That(items.MinBy(arg => arg.Length), Is.EqualTo("By"));
 			}

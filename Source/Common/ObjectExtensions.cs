@@ -172,9 +172,9 @@ namespace Junior.Common
 		public static IEnumerable<T> ToEnumerable<T>(this T value)
 		{
 			return new[]
-			       	{
-			       		value
-			       	};
+				{
+					value
+				};
 		}
 
 		/// <summary>
