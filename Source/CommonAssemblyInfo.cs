@@ -11,7 +11,8 @@ using System.Runtime.InteropServices;
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly:ComVisible(false)]
-[assembly:AssemblyVersion("1.0.6.0")]
-[assembly:AssemblyFileVersion("1.0.6.0")]
-[assembly:AssemblyInformationalVersion("1.0.6.0")]
+[assembly: ComVisibleAttribute(false)]
+[assembly: AssemblyVersionAttribute("1.0.7.0")]
+[assembly: AssemblyFileVersionAttribute("1.0.7.0")]
+[assembly: AssemblyInformationalVersionAttribute("1.0.7.0")]
+

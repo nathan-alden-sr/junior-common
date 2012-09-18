@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using NUnit.Framework;
+
 namespace Junior.Common.UnitTests.Common
 {
 	public static class DelegateDictionaryTester
