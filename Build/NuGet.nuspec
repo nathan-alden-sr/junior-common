@@ -17,7 +17,7 @@
 	</metadata>
 	<files>
 		<file src="NuGet Staging\LICENSE"/>
-		<file src="NuGet Staging\README"/>
+		<file src="NuGet Staging\README.md"/>
 		<file src="NuGet Staging\bin\*.*" target="lib\net40"/>
 	</files>
 </package>
