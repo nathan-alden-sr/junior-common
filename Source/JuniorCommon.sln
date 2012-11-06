@@ -1,10 +1,10 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D2B05B28-E8AF-4828-B383-09271C64D023}"
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE = ..\LICENSE
-		..\README = ..\README
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{36F7112D-9170-4855-B0CB-9B65B5F00958}"
