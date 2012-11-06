@@ -13,11 +13,6 @@
 		<references>
 			<reference file="Junior.Common.dll"/>
 		</references>
-		<frameworkAssemblies>
-			<frameworkAssembly assemblyName="System" targetFramework="net40"/>
-			<frameworkAssembly assemblyName="System.Xml" targetFramework="net40"/>
-			<frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="net40"/>
-		</frameworkAssemblies>
 		<tags>Junior</tags>
 	</metadata>
 	<files>

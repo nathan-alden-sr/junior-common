@@ -4,12 +4,14 @@
 	<property name="nant.settings.currentframework" value="net-4.0"/>
 
 	<!-- Version information (read http://semver.org before modifying) -->
-	<property name="MajorVersionNumber" value="1"/>
+	<property name="MajorVersionNumber" value="2"/>
 	<property name="MinorVersionNumber" value="0"/>
-	<property name="BuildVersionNumber" value="7"/>
+	<property name="BuildVersionNumber" value="0"/>
 	<property name="RevisionVersionNumber" value="0"/>
 	<property name="ProjectVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.${BuildVersionNumber}"/>
-	<property name="AssemblyVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.${BuildVersionNumber}.${RevisionVersionNumber}"/>
+	<property name="AssemblyVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.0.0"/>
+	<property name="AssemblyFileVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.${BuildVersionNumber}.0"/>
+	<property name="NuGetVersion" value="${ProjectVersion}"/>
 	<property name="ShortProjectNameAndVersion" value="${string::to-lower(string::replace(project::get-name() + '-' + ProjectVersion, ' ', ''))}"/>
 	<property name="LongProjectNameAndVersion" value="${string::to-lower(string::replace(ShortProjectNameAndVersion + '-' + Platform + '-' + BuildConfiguration, ' ', ''))}"/>
 
@@ -61,8 +63,7 @@
 			<attributes>
 				<attribute type="ComVisibleAttribute" value="false"/>
 				<attribute type="AssemblyVersionAttribute" value="${AssemblyVersion}"/>
-				<attribute type="AssemblyFileVersionAttribute" value="${AssemblyVersion}"/>
-				<attribute type="AssemblyInformationalVersionAttribute" value="${AssemblyVersion}"/>
+				<attribute type="AssemblyFileVersionAttribute" value="${AssemblyFileVersion}"/>
 			</attributes>
 			<references>
 				<include name="System.dll"/>
@@ -143,7 +144,7 @@
 			<arg value="pack"/>
 			<arg value="NuGet.nuspec"/>
 			<arg value="-Version"/>
-			<arg value="${ProjectVersion}"/>
+			<arg value="${NuGetVersion}"/>
 			<arg value="-OutputDirectory"/>
 			<arg value="${NuGetResultsDirectory}"/>
 		</exec>
