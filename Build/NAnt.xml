@@ -3,18 +3,6 @@
 	<!-- NAnt -->
 	<property name="nant.settings.currentframework" value="net-4.0"/>
 
-	<!-- Version information (read http://semver.org before modifying) -->
-	<property name="MajorVersionNumber" value="2"/>
-	<property name="MinorVersionNumber" value="0"/>
-	<property name="BuildVersionNumber" value="1"/>
-	<property name="RevisionVersionNumber" value="0"/>
-	<property name="ProjectVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.${BuildVersionNumber}"/>
-	<property name="AssemblyVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.0.0"/>
-	<property name="AssemblyFileVersion" value="${MajorVersionNumber}.${MinorVersionNumber}.${BuildVersionNumber}.0"/>
-	<property name="NuGetVersion" value="${ProjectVersion}"/>
-	<property name="ShortProjectNameAndVersion" value="${string::to-lower(string::replace(project::get-name() + '-' + ProjectVersion, ' ', ''))}"/>
-	<property name="LongProjectNameAndVersion" value="${string::to-lower(string::replace(ShortProjectNameAndVersion + '-' + Platform + '-' + BuildConfiguration, ' ', ''))}"/>
-
 	<!-- Build configuration -->
 	<property name="Platform" value="Any CPU" overwrite="false"/>
 	<property name="BuildConfiguration" value="Release" overwrite="false"/>
@@ -22,31 +10,26 @@
 	<!-- Directories -->
 	<property name="TrunkDirectory" value="${directory::get-parent-directory(path::get-directory-name(project::get-buildfile-path()))}"/>
 	<property name="BuildDirectory" value="${path::combine(TrunkDirectory, 'Build')}"/>
-	<property name="ReleaseDirectory" value="${path::combine(TrunkDirectory, 'Release')}"/>
-	<property name="ReleaseStagingDirectory" value="${path::combine(BuildDirectory, 'Release Staging')}"/>
-	<property name="ReleaseStagingVersionDirectory" value="${path::combine(ReleaseStagingDirectory, ShortProjectNameAndVersion)}"/>
-	<property name="ReleaseStagingBinDirectory" value="${path::combine(ReleaseStagingVersionDirectory, 'bin')}"/>
 	<property name="SourceDirectory" value="${path::combine(TrunkDirectory, 'Source')}"/>
 	<property name="NuGetResultsDirectory" value="${path::combine(BuildDirectory, 'NuGet Results')}"/>
 	<property name="NuGetStagingDirectory" value="${path::combine(BuildDirectory, 'NuGet Staging')}"/>
+	<property name="NuGetStagingBinDirectory" value="${path::combine(NuGetStagingDirectory, 'bin')}"/>
 	<property name="NUnitResultsDirectory" value="${path::combine(BuildDirectory, 'NUnit Results')}"/>
 
 	<!-- Paths -->
 	<property name="NUnitConsolePath" value="${path::combine(path::combine(path::combine(BuildDirectory, 'NUnit-2.6.1'), 'bin'), 'nunit-console.exe')}"/>
 	<property name="NuGetPath" value="${path::combine(path::combine(BuildDirectory, 'NuGet-2.0'), 'NuGet.exe')}"/>
 	<property name="NuGetNuspecPath" value="${path::combine(BuildDirectory, 'NuGet.nuspec')}"/>
-	<property name="ReleaseArchivePath" value="${path::combine(ReleaseDirectory, LongProjectNameAndVersion + '.zip')}"/>
 	<property name="SolutionPath" value="${path::combine(SourceDirectory, project::get-name() + '.sln')}"/>
+	<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'CommonAssemblyInfo.cs')}"/>
 
 	<!-- Build -->
 	<target name="Build">
-		<call target="CommonAssemblyInfo"/>
 		<call target="Compile"/>
 		<call target="DeleteNUnitResults"/>
 		<call target="RunUnitTests"/>
 		<if test="${BuildConfiguration == 'Release'}">
-			<call target="StageArchiveFiles"/>
-			<call target="CreateReleaseArchives"/>
+			<call target="RecreateNuGetResultsDirectory"/>
 			<call target="StageNuGetFiles"/>
 			<call target="CreateNuGetPackage"/>
 			<call target="DeleteStagedFiles"/>
@@ -54,22 +37,6 @@
 	</target>
 
 	<!-- Compile -->
-	<target name="CommonAssemblyInfo">
-		<asminfo output="${SourceDirectory}\CommonAssemblyInfo.cs" language="CSharp">
-			<imports>
-				<import namespace="System.Reflection"/>
-				<import namespace="System.Runtime.InteropServices"/>
-			</imports>
-			<attributes>
-				<attribute type="ComVisibleAttribute" value="false"/>
-				<attribute type="AssemblyVersionAttribute" value="${AssemblyVersion}"/>
-				<attribute type="AssemblyFileVersionAttribute" value="${AssemblyFileVersion}"/>
-			</attributes>
-			<references>
-				<include name="System.dll"/>
-			</references>
-		</asminfo>
-	</target>
 	<target name="Compile">
 		<exec
 			program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe"
@@ -104,39 +71,50 @@
 	</target>
 
 	<!-- Package -->
-	<target name="StageArchiveFiles">
-		<delete dir="${ReleaseStagingDirectory}"/>
-		<mkdir dir="${ReleaseStagingDirectory}"/>
-		<copy todir="${ReleaseStagingVersionDirectory}">
+	<target name="RecreateNuGetResultsDirectory">
+		<delete dir="${NuGetResultsDirectory}"/>
+		<mkdir dir="${NuGetResultsDirectory}"/>
+	</target>
+	<target name="StageNuGetFiles">
+		<delete dir="${NuGetStagingDirectory}"/>
+		<mkdir dir="${NuGetStagingDirectory}"/>
+		<copy todir="${NuGetStagingDirectory}">
 			<fileset basedir="${TrunkDirectory}">
 				<include name="LICENSE"/>
 				<include name="README.md"/>
 			</fileset>
 		</copy>
-		<copy todir="${ReleaseStagingBinDirectory}">
-			<fileset basedir="${path::combine(SourceDirectory, path::combine('Common', path::combine('bin', BuildConfiguration)))}">
+		<copy todir="${NuGetStagingBinDirectory}">
+			<fileset basedir="${path::combine(SourceDirectory, path::combine('Common\bin', BuildConfiguration))}">
 				<include name="Junior.Common.*"/>
 			</fileset>
 		</copy>
-	</target>
-	<target name="CreateReleaseArchives">
-		<delete dir="${ReleaseDirectory}"/>
-		<mkdir dir="${ReleaseDirectory}"/>
-		<zip zipfile="${ReleaseArchivePath}">
-			<fileset basedir="${ReleaseStagingDirectory}">
-				<include name="**\*"/>
-			</fileset>
-		</zip>
-	</target>
-	<target name="StageNuGetFiles">
-		<delete dir="${NuGetStagingDirectory}"/>
-		<move todir="${NuGetStagingDirectory}">
-			<fileset basedir="${ReleaseStagingVersionDirectory}"/>
-		</move>
+		<script language="C#">
+			<imports>
+				<import namespace="System.Linq"/>
+				<import namespace="System.Text.RegularExpressions"/>
+			</imports>
+			<references>
+				<include name="System.dll"/>
+				<include name="System.Core.dll"/>
+			</references>
+			<code>
+				<![CDATA[
+				public static void ScriptMain(Project project)
+				{
+					string assemblyInfoPath = project.Properties["AssemblyInfoPath"];
+					string assemblyInfo = File.ReadAllText(assemblyInfoPath);
+					string version = Regex.Match(assemblyInfo, @"(?<=AssemblyFileVersion\(\"").*?(?=\""\))").Value;
+					
+					version = String.Join(".", version.Split('.').Take(3));
+					
+					project.Properties["NuGetVersion"] = version;
+				}
+				]]>
+			</code>
+		</script>
 	</target>
 	<target name="CreateNuGetPackage">
-		<delete dir="${NuGetResultsDirectory}"/>
-		<mkdir dir="${NuGetResultsDirectory}"/>
 		<exec
 			program="${NuGetPath}"
 			workingdir="."
@@ -150,7 +128,6 @@
 		</exec>
 	</target>
 	<target name="DeleteStagedFiles">
-		<delete dir="${ReleaseStagingDirectory}"/>
 		<delete dir="${NuGetStagingDirectory}"/>
 	</target>
 </project>
