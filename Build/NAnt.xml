@@ -17,11 +17,10 @@
 	<property name="NUnitResultsDirectory" value="${path::combine(BuildDirectory, 'NUnit Results')}"/>
 
 	<!-- Paths -->
-	<property name="NUnitConsolePath" value="${path::combine(path::combine(path::combine(BuildDirectory, 'NUnit-2.6.1'), 'bin'), 'nunit-console.exe')}"/>
-	<property name="NuGetPath" value="${path::combine(path::combine(BuildDirectory, 'NuGet-2.0'), 'NuGet.exe')}"/>
-	<property name="NuGetNuspecPath" value="${path::combine(BuildDirectory, 'NuGet.nuspec')}"/>
+	<property name="NUnitConsolePath" value="${path::combine(BuildDirectory, 'NUnit-2.6.2\bin\nunit-console.exe')}"/>
+	<property name="NuGetPath" value="${path::combine(BuildDirectory, 'NuGet-2.0\NuGet.exe')}"/>
 	<property name="SolutionPath" value="${path::combine(SourceDirectory, project::get-name() + '.sln')}"/>
-	<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'CommonAssemblyInfo.cs')}"/>
+	<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'Common\Properties\AssemblyInfo.cs')}"/>
 
 	<!-- Build -->
 	<target name="Build">
@@ -55,7 +54,7 @@
 		<mkdir dir="${NUnitResultsDirectory}"/>
 	</target>
 	<target name="RunUnitTests">
-		<property name="UnitTestAssemblyPath" value="${path::combine(path::combine(SourceDirectory, path::combine('UnitTests', path::combine('bin', BuildConfiguration))), 'Junior.Common.UnitTests.dll')}"/>
+		<property name="UnitTestAssemblyPath" value="${path::combine(SourceDirectory, 'UnitTests\bin\' + BuildConfiguration + '\Junior.Common.UnitTests.dll')}"/>
 		<call target="ExecuteNUnit"/>
 	</target>
 	<target name="ExecuteNUnit">
@@ -66,7 +65,6 @@
 			<arg value="/nothread"/>
 			<arg value="/domain=Multiple"/>
 			<arg value="/process=Single"/>
-			<arg value="/framework=${nant.settings.currentframework}"/>
 		</exec>
 	</target>
 
@@ -85,7 +83,7 @@
 			</fileset>
 		</copy>
 		<copy todir="${NuGetStagingBinDirectory}">
-			<fileset basedir="${path::combine(SourceDirectory, path::combine('Common\bin', BuildConfiguration))}">
+			<fileset basedir="${path::combine(SourceDirectory, 'Common\bin\' + BuildConfiguration)}">
 				<include name="Junior.Common.*"/>
 			</fileset>
 		</copy>

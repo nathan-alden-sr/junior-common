@@ -47,9 +47,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="Common\BinaryTreeNodeTester.cs" />
     <Compile Include="Common\DelegateDictionaryTester.cs" />
     <Compile Include="Common\CachedDelegateTester.cs" />
