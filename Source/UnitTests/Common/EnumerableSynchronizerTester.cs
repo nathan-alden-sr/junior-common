@@ -152,7 +152,7 @@ namespace Junior.Common.UnitTests.Common
 		public class When_synchronizing
 		{
 			[Test]
-			public void Must_call_delegates()
+			public async void Must_call_delegates()
 			{
 				var initialState = new List<int>(new[] { 1, 2, 3 });
 				var desiredState = new List<int>(new[] { 3, 4, 5 });
@@ -162,7 +162,7 @@ namespace Junior.Common.UnitTests.Common
 
 				var enumerableSynchronizer = new EnumerableSynchronizer<int>(initialState, desiredState);
 
-				enumerableSynchronizer.Synchronize(addedItems.Add, removedItems.Add, commonItems.Add);
+				await enumerableSynchronizer.Synchronize(addedItems.Add, removedItems.Add, commonItems.Add);
 
 				Assert.That(removedItems, Is.EqualTo(new List<int>(new[] { 1, 2 })));
 				Assert.That(addedItems, Is.EqualTo(new List<int>(new[] { 4, 5 })));

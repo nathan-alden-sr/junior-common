@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Junior.Common
 {
@@ -150,33 +151,36 @@ namespace Junior.Common
 		/// <param name="addedElementDelegate">An <see cref="Action{TItem2}"/> that will be invoked for each added element, or null to not invoke a delegate.</param>
 		/// <param name="removedElementDelegate">An <see cref="Action{TItem1}"/> that will be invoked for each removed element, or null to not invoke a delegate.</param>
 		/// <param name="commonElementDelegate">An <see cref="Action{TItem2}"/> that will be invoked for each common element, or null to not invoke a delegate.</param>
-		public void Synchronize(Action<TItem2> addedElementDelegate = null, Action<TItem1> removedElementDelegate = null, Action<TItem2> commonElementDelegate = null)
+		public async Task Synchronize(Action<TItem2> addedElementDelegate = null, Action<TItem1> removedElementDelegate = null, Action<TItem2> commonElementDelegate = null)
 		{
-			if (!EnumerablesContainSameElements)
-			{
-				if (removedElementDelegate != null)
+			await Task.Run(() =>
 				{
-					foreach (TItem1 removedItem in RemovedElements)
+					if (!EnumerablesContainSameElements)
 					{
-						removedElementDelegate(removedItem);
+						if (removedElementDelegate != null)
+						{
+							foreach (TItem1 removedItem in RemovedElements)
+							{
+								removedElementDelegate(removedItem);
+							}
+						}
+						if (addedElementDelegate != null)
+						{
+							foreach (TItem2 addedItem in AddedElements)
+							{
+								addedElementDelegate(addedItem);
+							}
+						}
 					}
-				}
-				if (addedElementDelegate != null)
-				{
-					foreach (TItem2 addedItem in AddedElements)
+					if (commonElementDelegate == null)
 					{
-						addedElementDelegate(addedItem);
+						return;
 					}
-				}
-			}
-			if (commonElementDelegate == null)
-			{
-				return;
-			}
-			foreach (TItem2 commonItem in CommonElements)
-			{
-				commonElementDelegate(commonItem);
-			}
+					foreach (TItem2 commonItem in CommonElements)
+					{
+						commonElementDelegate(commonItem);
+					}
+				});
 		}
 
 		private static bool DefaultComparer(TItem1 item1, TItem2 item2)
