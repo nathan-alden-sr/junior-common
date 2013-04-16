@@ -18,6 +18,6 @@
 	<files>
 		<file src="NuGet Staging\LICENSE"/>
 		<file src="NuGet Staging\README.md"/>
-		<file src="NuGet Staging\bin\Junior.Common.*" target="lib\net40"/>
+		<file src="NuGet Staging\bin\Junior.Common.*" target="lib\net45"/>
 	</files>
 </package>
