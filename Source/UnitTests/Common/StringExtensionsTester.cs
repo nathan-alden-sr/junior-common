@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 
 using NUnit.Framework;
@@ -12,6 +13,238 @@ namespace Junior.Common.UnitTests.Common
 			Value1,
 			// ReSharper restore UnusedMember.Local
 			Value2
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentException>(() => "".EnsureNotEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotEmpty_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			[TestCase(" ")]
+			[TestCase(null)]
+			public void Must_return_value(string value)
+			{
+				Assert.That(value.EnsureNotEmpty("value"), Is.EqualTo(value));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentException>(() => "".EnsureNotNullOrEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrEmpty_on_null_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentNullException>(() => ((string)null).EnsureNotNullOrEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrEmpty_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			[TestCase(" ")]
+			public void Must_return_value(string value)
+			{
+				Assert.That(value.EnsureNotNullOrEmpty("value"), Is.EqualTo(value));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrWhitespace_on_empty_or_whitespace_parameter
+		{
+			[Test]
+			[TestCase("")]
+			[TestCase(" ")]
+			public void Must_throw_exception(string value)
+			{
+				Assert.Throws<ArgumentException>(() => value.EnsureNotNullOrWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrWhitespace_on_null_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentNullException>(() => ((string)null).EnsureNotNullOrWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrWhitespace_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			public void Must_return_value(string value)
+			{
+				Assert.That(value.EnsureNotNullOrWhitespace("value"), Is.EqualTo(value));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotWhitespace_on_empty_or_whitespace_parameter
+		{
+			[Test]
+			[TestCase("")]
+			[TestCase(" ")]
+			public void Must_throw_exception(string value)
+			{
+				Assert.Throws<ArgumentException>(() => value.EnsureNotWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotWhitespace_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			[TestCase(null)]
+			public void Must_return_value(string value)
+			{
+				Assert.That(value.EnsureNotWhitespace("value"), Is.EqualTo(value));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentException>(() => "".ThrowIfEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfEmpty_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			[TestCase(" ")]
+			[TestCase(null)]
+			public void Must_not_throw_exception(string value)
+			{
+				Assert.DoesNotThrow(() => value.ThrowIfEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentException>(() => "".ThrowIfNullOrEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrEmpty_on_null_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentNullException>(() => ((string)null).ThrowIfNullOrEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrEmpty_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			[TestCase(" ")]
+			public void Must_not_throw_exception(string value)
+			{
+				Assert.DoesNotThrow(() => value.ThrowIfNullOrEmpty("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrWhitespace_on_empty_or_whitespace_parameter
+		{
+			[Test]
+			[TestCase("")]
+			[TestCase(" ")]
+			public void Must_throw_exception(string value)
+			{
+				Assert.Throws<ArgumentException>(() => value.ThrowIfNullOrWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrWhitespace_on_null_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentNullException>(() => ((string)null).ThrowIfNullOrWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrWhitespace_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			public void Must_not_throw_exception(string value)
+			{
+				Assert.DoesNotThrow(() => value.ThrowIfNullOrWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfWhitespace_on_empty_or_whitespace_parameter
+		{
+			[Test]
+			[TestCase("")]
+			[TestCase(" ")]
+			public void Must_throw_exception(string value)
+			{
+				Assert.Throws<ArgumentException>(() => value.ThrowIfWhitespace("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfWhitespace_on_valid_parameter
+		{
+			[Test]
+			[TestCase("foo")]
+			[TestCase("a")]
+			[TestCase(null)]
+			public void Must_not_throw_exception(string value)
+			{
+				Assert.DoesNotThrow(() => value.ThrowIfWhitespace("value"));
+			}
 		}
 
 		[TestFixture]

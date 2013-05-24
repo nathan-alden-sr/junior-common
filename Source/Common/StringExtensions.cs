@@ -257,5 +257,153 @@ namespace Junior.Common
 
 			return value.TryToEnum(ignoreCase, out t);
 		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the specified value is null or throws an <see cref="ArgumentException"/> if the specified value is empty.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
+		[DebuggerNonUserCode]
+		public static void ThrowIfNullOrEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
+		{
+			value.ThrowIfNull(paramName);
+			if (value.Length == 0)
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the specified value is null or throws an <see cref="ArgumentException"/> if the specified value is empty or consists only of whitespace.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
+		[DebuggerNonUserCode]
+		public static void ThrowIfNullOrWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
+		{
+			value.ThrowIfNull(paramName);
+			if (String.IsNullOrWhiteSpace(value))
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentException"/> if the specified value is empty.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
+		[DebuggerNonUserCode]
+		public static void ThrowIfEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
+		{
+			if (value == "")
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentException"/> if the specified value is empty or consists only of whitespace.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
+		[DebuggerNonUserCode]
+		public static void ThrowIfWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
+		{
+			if (value != null && String.IsNullOrWhiteSpace(value))
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the specified value is null or throws an <see cref="ArgumentException"/> if the specified value is empty; otherwise, returns the value.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
+		/// <returns>the specified value</returns>
+		[DebuggerNonUserCode]
+		public static string EnsureNotNullOrEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
+		{
+			value.ThrowIfNull(paramName);
+			if (value.Length == 0)
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+
+			return value;
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the specified value is null or throws an <see cref="ArgumentException"/> if the specified value is empty or consists only of whitespace; otherwise, returns the value.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
+		/// <returns>the specified value</returns>
+		[DebuggerNonUserCode]
+		public static string EnsureNotNullOrWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
+		{
+			value.ThrowIfNull(paramName);
+			if (String.IsNullOrWhiteSpace(value))
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+
+			return value;
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentException"/> if the specified value is empty; otherwise, returns the value.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
+		/// <returns>the specified value</returns>
+		[DebuggerNonUserCode]
+		public static string EnsureNotEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
+		{
+			if (value == "")
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+
+			return value;
+		}
+
+		/// <summary>
+		/// Throws an <see cref="ArgumentException"/> if the specified value is empty or consists only of whitespace; otherwise, returns the value.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
+		/// <returns>the specified value</returns>
+		[DebuggerNonUserCode]
+		public static string EnsureNotWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
+		{
+			if (value != null && String.IsNullOrWhiteSpace(value))
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
+
+			return value;
+		}
 	}
 }
