@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 using NUnit.Framework;
 
-namespace Junior.Common.UnitTests
+namespace Junior.Common.UnitTests.Common
 {
 	public static class AwaitableTaskSchedulerTester
 	{

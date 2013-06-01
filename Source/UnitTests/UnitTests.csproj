@@ -51,7 +51,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AwaitableTaskSchedulerTester.cs" />
+    <Compile Include="Common\AwaitableTaskSchedulerTester.cs" />
     <Compile Include="Common\BinaryTreeNodeTester.cs" />
     <Compile Include="Common\DelegateDictionaryTester.cs" />
     <Compile Include="Common\CachedDelegateTester.cs" />
