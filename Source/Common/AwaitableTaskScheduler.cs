@@ -13,6 +13,10 @@ namespace Junior.Common
 	/// </remarks>
 	public class AwaitableTaskScheduler : TaskScheduler
 	{
+		/// <summary>
+		/// A factory that can start a <see cref="Task"/> on an <see cref="AwaitableTaskScheduler"/>.
+		/// </summary>
+		public static readonly AwaitableTaskSchedulerFactory<AwaitableTaskScheduler> Factory = new AwaitableTaskSchedulerFactory<AwaitableTaskScheduler>();
 		[ThreadStatic]
 		private static bool _currentThreadIsProcessingItems;
 		private readonly object _lockObject = new object();

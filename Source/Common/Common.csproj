@@ -53,6 +53,7 @@
     <AssemblyOriginatorKeyFile>..\JuniorCommon.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AwaitableTaskSchedulerFactory.cs" />
     <Compile Include="BinaryGuid.cs" />
     <Compile Include="AwaitableTaskScheduler.cs" />
     <Compile Include="DoubleToLong.cs" />
