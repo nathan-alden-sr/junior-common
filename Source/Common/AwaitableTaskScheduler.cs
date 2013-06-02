@@ -13,16 +13,24 @@ namespace Junior.Common
 	/// </remarks>
 	public class AwaitableTaskScheduler : TaskScheduler
 	{
-		/// <summary>
-		/// A factory that can start a <see cref="Task"/> on an <see cref="AwaitableTaskScheduler"/>.
-		/// </summary>
-		public static readonly AwaitableTaskSchedulerFactory<AwaitableTaskScheduler> Factory = new AwaitableTaskSchedulerFactory<AwaitableTaskScheduler>();
+		private static readonly AwaitableTaskSchedulerFactory<AwaitableTaskScheduler> _factory = new AwaitableTaskSchedulerFactory<AwaitableTaskScheduler>();
 		[ThreadStatic]
 		private static bool _currentThreadIsProcessingItems;
 		private readonly object _lockObject = new object();
 		private readonly ManualResetEventSlim _manualResetEvent = new ManualResetEventSlim(false);
 		private Task _completionTask;
 		private int _taskCount;
+
+		/// <summary>
+		/// Gets a factory that can start a <see cref="Task"/> on an <see cref="AwaitableTaskScheduler"/>.
+		/// </summary>
+		public static AwaitableTaskSchedulerFactory<AwaitableTaskScheduler> Factory
+		{
+			get
+			{
+				return _factory;
+			}
+		}
 
 		/// <summary>
 		/// Gets a task that completes when all queued tasks have completed.
