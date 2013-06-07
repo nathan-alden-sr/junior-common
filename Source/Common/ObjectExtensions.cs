@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for the <see cref="object"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class ObjectExtensions
 	{
 		/// <summary>
@@ -14,7 +16,6 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <returns><paramref name="value"/> as <see cref="Nullable{T}"/> if the conversion succeeded; otherwise, null.</returns>
-		[DebuggerNonUserCode]
 		public static T? Convert<T>(this object value)
 			where T : struct
 		{
@@ -55,7 +56,6 @@ namespace Junior.Common
 		/// <param name="value">A value.</param>
 		/// <param name="defaultValue">The value to return if conversion fails.</param>
 		/// <returns><paramref name="value"/> as <see cref="Nullable{T}"/> if the conversion succeeded; otherwise, <paramref name="defaultValue"/>.</returns>
-		[DebuggerNonUserCode]
 		public static T Convert<T>(this object value, T defaultValue)
 			where T : struct
 		{
@@ -68,7 +68,6 @@ namespace Junior.Common
 		/// <param name="value">A value.</param>
 		/// <param name="result">The converted value, if conversion succeeded; otherwise, default(<typeparamref name="T"/>).</param>
 		/// <returns>true if conversion succeeded; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool TryConvert<T>(this object value, out T result)
 			where T : struct
 		{
@@ -89,7 +88,6 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <returns>true if <paramref name="value"/> can be converted to <typeparamref name="T"/>; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool CanConvert<T>(this object value)
 			where T : struct
 		{
@@ -103,7 +101,6 @@ namespace Junior.Common
 		/// <param name="type">A type.</param>
 		/// <returns>true if <paramref name="value"/> can be converted to <paramref name="type"/>; otherwise, false.</returns>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="type"/> is null.</exception>
-		[DebuggerNonUserCode]
 		public static bool CanConvert(this object value, Type type)
 		{
 			type.ThrowIfNull("type");
@@ -155,7 +152,6 @@ namespace Junior.Common
 		/// <param name="value">A value.</param>
 		/// <param name="paramName">The value's parameter name.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-		[DebuggerNonUserCode]
 		public static void ThrowIfNull(this object value, string paramName)
 		{
 			if (value == null)
@@ -171,7 +167,6 @@ namespace Junior.Common
 		/// <param name="paramName">The value's parameter name.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
 		/// <returns>the specified value</returns>
-		[DebuggerNonUserCode]
 		public static T EnsureNotNull<T>(this T value, string paramName)
 			where T : class
 		{
@@ -203,7 +198,6 @@ namespace Junior.Common
 		/// <param name="nextDelegate">A <see cref="Func{T,T}"/> that returns the next element in the sequence.</param>
 		/// <param name="omitNull">When true, null delegate results are ignored; when false, the traversal ends.</param>
 		/// <returns>An enumerable containing all the traversed elements.</returns>
-		[DebuggerNonUserCode]
 		public static IEnumerable<T> Traverse<T>(this T value, Func<T, T> nextDelegate, bool omitNull = true)
 			where T : class
 		{
@@ -224,6 +218,31 @@ namespace Junior.Common
 			{
 				yield return t;
 			}
+		}
+
+		/// <summary>
+		/// Retrieves a completed task with the specified value.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <typeparam name="T">A type.</typeparam>
+		/// <returns>
+		/// A completed <see cref="Task{T}"/> whose result is <paramref name="value"/>.
+		/// </returns>
+		public static Task<T> AsCompletedTask<T>(this T value)
+		{
+			return Task.FromResult(value);
+		}
+
+		/// <summary>
+		/// Returns null if <paramref name="value"/> is equal to <paramref name="default"/>.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="default">The default value to compare against.</param>
+		/// <returns>null if <paramref name="value"/> is equal to <paramref name="default"/>; otherwise, <paramref name="value"/>.</returns>
+		public static T? DefaultToNull<T>(this T value, T @default = default(T))
+			where T : struct
+		{
+			return Equals(value, @default) ? (T?)null : value;
 		}
 	}
 }

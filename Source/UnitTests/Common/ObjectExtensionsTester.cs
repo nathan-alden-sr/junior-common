@@ -60,6 +60,19 @@ namespace Junior.Common.UnitTests.Common
 		}
 
 		[TestFixture]
+		public class When_converting_default_values_to_null
+		{
+			[Test]
+			[TestCase(0, 0, null)]
+			[TestCase(1, 0, 1)]
+			[TestCase(-1, -1, null)]
+			public void Must_convert_to_null(int value, int @default, object expected)
+			{
+				Assert.That(value.DefaultToNull(@default), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
 		public class When_converting_invalid_DateTime_string_to_DateTime
 		{
 			[Test]

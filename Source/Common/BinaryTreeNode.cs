@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Junior.Common
@@ -8,6 +9,7 @@ namespace Junior.Common
 	/// the type of value nodes contain. To retrieve an immutable binary tree, reference an instance as
 	/// <see cref="IImmutableBinaryTreeNode{TBinaryTreeNode,TValue}"/>.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class BinaryTreeNode<TBinaryTreeNode, TValue> : IImmutableBinaryTreeNode<TBinaryTreeNode, TValue>
 		where TBinaryTreeNode : BinaryTreeNode<TBinaryTreeNode, TValue>
 	{

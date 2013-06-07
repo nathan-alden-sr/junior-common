@@ -6,6 +6,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Times how long it takes for a delegate to finish executing by using the <see cref="Stopwatch"/> class.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class StopwatchContext
 	{
 		/// <summary>

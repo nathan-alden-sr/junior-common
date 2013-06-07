@@ -1,8 +1,11 @@
+using System.Diagnostics;
+
 namespace Junior.Common.Ranges
 {
 	/// <summary>
 	/// A range of <typeparamref name="T"/>.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class Range<T>
 	{
 		private readonly T _end;

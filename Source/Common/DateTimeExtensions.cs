@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for the <see cref="DateTime"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class DateTimeExtensions
 	{
 		/// <summary>

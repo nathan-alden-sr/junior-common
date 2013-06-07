@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for enumerations.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class EnumExtensions
 	{
 		/// <summary>

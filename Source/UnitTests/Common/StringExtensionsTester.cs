@@ -470,6 +470,20 @@ namespace Junior.Common.UnitTests.Common
 		}
 
 		[TestFixture]
+		public class When_truncating_string
+		{
+			[Test]
+			[TestCase("value", 10, "value")]
+			[TestCase("value", 5, "value")]
+			[TestCase("value", 3, "val")]
+			[TestCase("value", 0, "")]
+			public void Must_truncate_correctly(string value, int length, string expected)
+			{
+				Assert.That(value.Truncate(length), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
 		public class When_trying_to_convert_empty_string_to_null_using_emptyorwhitespacetonull
 		{
 			[Test]

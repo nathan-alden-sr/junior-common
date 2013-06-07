@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Junior.Common.Ranges
 {
 	/// <summary>
 	/// A range of nullable <typeparamref name="T"/> where the start must be less than or equal to the end.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class NullableStartLessThanOrEqualToEndRange<T> : Range<T?>
 		where T : struct, IComparable
 	{

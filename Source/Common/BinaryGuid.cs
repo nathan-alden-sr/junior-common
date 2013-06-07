@@ -8,6 +8,7 @@ namespace Junior.Common
 	/// Allows conversion to and from <see cref="Guid"/> and an <see cref="Array"/> of <see cref="Byte"/>.
 	/// </summary>
 	[DebuggerDisplay("{_guid}")]
+	[DebuggerStepThrough]
 	public struct BinaryGuid : IEquatable<BinaryGuid>, IEquatable<Guid>, IEquatable<byte[]>, IComparable<BinaryGuid>, IComparable<Guid>, IComparable<byte[]>
 	{
 		private readonly Guid _guid;
@@ -36,7 +37,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(BinaryGuid other)
@@ -48,7 +49,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(byte[] other)
@@ -62,7 +63,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(Guid other)
@@ -154,7 +155,8 @@ namespace Junior.Common
 		/// <returns>
 		/// true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
 		/// </returns>
-		/// <param name="obj">Another object to compare to. </param><filterpriority>2</filterpriority>
+		/// <param name="obj">Another object to compare to. </param>
+		/// <filterpriority>2</filterpriority>
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))

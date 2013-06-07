@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace Junior.Common
 	/// Creates and starts a <see cref="T:System.Threading.Tasks.Task">Task</see> on a new <typeparamref name="T"/> instance.
 	/// </summary>
 	/// <typeparam name="T">An <see cref="AwaitableTaskScheduler"/>.</typeparam>
+	[DebuggerStepThrough]
 	public class AwaitableTaskSchedulerFactory<T>
 		where T : AwaitableTaskScheduler, new()
 	{

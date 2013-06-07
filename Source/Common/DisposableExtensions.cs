@@ -6,6 +6,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Extensions for the <see cref="IDisposable"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class DisposableExtensions
 	{
 		/// <summary>
@@ -14,7 +15,6 @@ namespace Junior.Common
 		/// <param name="object">An object.</param>
 		/// <param name="disposed">A value indicating if <paramref name="object"/> is disposed.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="object"/> is null.</exception>
-		[DebuggerNonUserCode]
 		public static void ThrowIfDisposed(this IDisposable @object, bool disposed)
 		{
 			@object.ThrowIfNull("object");

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Junior.Common.Ranges
 {
 	/// <summary>
 	/// A range of <typeparamref name="T"/> where the start must be less than the end.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class StartLessThanEndRange<T> : Range<T>
 		where T : IComparable
 	{

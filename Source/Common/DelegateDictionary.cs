@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Junior.Common
@@ -9,6 +10,7 @@ namespace Junior.Common
 	/// A caching dictionary of <see cref="Func{T,TResult}"/> tracked by <typeparamref name="TKey"/>.
 	/// Delegate return values are cached when a delegate is invoked.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class DelegateDictionary<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TValue>>
 	{
 		private readonly Dictionary<TKey, TValue> _cachedValueDictionary = new Dictionary<TKey, TValue>();

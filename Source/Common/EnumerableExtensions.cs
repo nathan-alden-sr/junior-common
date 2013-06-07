@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for the <see cref="IEnumerable{T}"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class EnumerableExtensions
 	{
 		/// <summary>
@@ -235,6 +238,28 @@ namespace Junior.Common
 			}
 
 			return true;
+		}
+
+		/// <summary>
+		/// Converts an empty enumerable to null.
+		/// </summary>
+		/// <param name="source">An enumerable.</param>
+		/// <returns>null if <paramref name="source"/> is empty; otherwise, <paramref name="source"/>.</returns>
+		public static IEnumerable<T> EmptyToNull<T>(this IEnumerable<T> source)
+		{
+			// ReSharper disable PossibleMultipleEnumeration
+			return source != null ? ((!source.Any() ? null : source)) : null;
+			// ReSharper restore PossibleMultipleEnumeration
+		}
+
+		/// <summary>
+		/// Converts an null enumerable to an empty one.
+		/// </summary>
+		/// <param name="source">An enumerable.</param>
+		/// <returns>empty if <paramref name="source"/> is null; otherwise, <paramref name="source"/>.</returns>
+		public static IEnumerable<T> NullToEmpty<T>(this IEnumerable<T> source)
+		{
+			return source ?? Enumerable.Empty<T>();
 		}
 	}
 }

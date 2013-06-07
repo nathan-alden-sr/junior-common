@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Junior.Common
@@ -8,6 +9,7 @@ namespace Junior.Common
 	/// Generic wrapper for several <see cref="Enum"/> methods.
 	/// </summary>
 	/// <typeparam name="T">An enum type.</typeparam>
+	[DebuggerStepThrough]
 	public static class Enum<T>
 		where T : struct
 	{

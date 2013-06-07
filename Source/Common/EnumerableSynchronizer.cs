@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,8 +8,9 @@ namespace Junior.Common
 {
 	/// <summary>
 	/// Determines which elements in an initial enumerable have been removed, added or are common in a desired enumerable.
-	/// <see cref="EnumerableSynchronizer{T}"/> forces elements have the same type.
+	///     <see cref="EnumerableSynchronizer{T}"/> forces elements have the same type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class EnumerableSynchronizer<T> : EnumerableSynchronizer<T, T>
 	{
 		/// <summary>
@@ -36,6 +38,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Determines which elements in an initial enumerable have been removed, added or are common in a desired enumerable.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class EnumerableSynchronizer<TItem1, TItem2>
 	{
 		private readonly List<TItem2> _addedElements;

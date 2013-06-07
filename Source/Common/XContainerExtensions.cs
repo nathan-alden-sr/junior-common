@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace Junior.Common
@@ -5,6 +6,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Extensions for the <see cref="XContainer"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class XContainerExtensions
 	{
 		/// <summary>

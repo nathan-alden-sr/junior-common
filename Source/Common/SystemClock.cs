@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Provides the current system date and time in both local time and UTC time.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class SystemClock : ISystemClock
 	{
 		/// <summary>

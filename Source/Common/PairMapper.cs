@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Junior.Common
@@ -8,6 +9,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Maps between two values.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class PairMapper<TFirst, TSecond> : IPairMapper<TFirst, TSecond>
 	{
 		private readonly List<Tuple<TFirst, TSecond>> _mapper = new List<Tuple<TFirst, TSecond>>();

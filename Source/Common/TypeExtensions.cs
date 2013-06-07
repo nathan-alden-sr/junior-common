@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -8,6 +9,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Extensions for the <see cref="Type"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class TypeExtensions
 	{
 		/// <summary>

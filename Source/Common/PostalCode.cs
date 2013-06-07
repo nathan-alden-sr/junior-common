@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -7,6 +8,7 @@ namespace Junior.Common
 	/// <summary>
 	/// A base class for all postal code implementations.
 	/// </summary>
+	[DebuggerStepThrough]
 	public abstract class PostalCode<T> : IEquatable<PostalCode<T>>, IComparable<PostalCode<T>>
 		where T : PostalCode<T>
 	{
@@ -48,7 +50,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(PostalCode<T> other)
@@ -82,7 +84,8 @@ namespace Junior.Common
 		/// <returns>
 		/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
 		/// </returns>
-		/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+		/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param>
+		/// <filterpriority>2</filterpriority>
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
@@ -101,7 +104,7 @@ namespace Junior.Common
 		}
 
 		/// <summary>
-		/// Serves as a hash function for a particular type. 
+		/// Serves as a hash function for a particular type.
 		/// </summary>
 		/// <returns>
 		/// A hash code for the current <see cref="T:System.Object"/>.

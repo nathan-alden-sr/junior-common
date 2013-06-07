@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Invokes a delegate only if a provided key is different than the last execution.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class NullableCachedDelegate<TKey, TResult>
 		where TKey : struct
 	{

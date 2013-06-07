@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Junior.Common
 	/// <remarks>
 	/// https://github.com/ChadBurggraf/parallel-extensions-extras/blob/master/TaskSchedulers/LimitedConcurrencyLevelTaskScheduler.cs
 	/// </remarks>
+	[DebuggerStepThrough]
 	public class AwaitableTaskScheduler : TaskScheduler
 	{
 		private static readonly AwaitableTaskSchedulerFactory<AwaitableTaskScheduler> _factory = new AwaitableTaskSchedulerFactory<AwaitableTaskScheduler>();
@@ -39,7 +41,7 @@ namespace Junior.Common
 		{
 			get
 			{
-				return _completionTask ?? Task.FromResult((object)null);
+				return _completionTask ?? Task.Factory.Empty();
 			}
 		}
 

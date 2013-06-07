@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Junior.Common
 {
 	/// <summary>
 	/// Extensions for the <see cref="Dictionary{TKey,TValue}"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class DictionaryExtensions
 	{
 		/// <summary>

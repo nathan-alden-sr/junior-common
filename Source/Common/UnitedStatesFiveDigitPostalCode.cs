@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Globalization;
 
 namespace Junior.Common
@@ -6,6 +7,7 @@ namespace Junior.Common
 	/// <summary>
 	/// A United States 5-digit postal code.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class UnitedStatesFiveDigitPostalCode : PostalCode<UnitedStatesFiveDigitPostalCode>
 	{
 		/// <summary>

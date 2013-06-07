@@ -8,6 +8,7 @@ namespace Junior.Common
 	/// An email address. <see cref="EmailAddress"/> allows email addresses of any length.
 	/// </summary>
 	[DebuggerDisplay("{_emailAddress}")]
+	[DebuggerStepThrough]
 	public class EmailAddress : IEquatable<EmailAddress>, IComparable<EmailAddress>
 	{
 		/// <summary>
@@ -38,7 +39,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(EmailAddress other)
@@ -72,7 +73,8 @@ namespace Junior.Common
 		/// <returns>
 		/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
 		/// </returns>
-		/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+		/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param>
+		/// <filterpriority>2</filterpriority>
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
@@ -91,7 +93,7 @@ namespace Junior.Common
 		}
 
 		/// <summary>
-		/// Serves as a hash function for a particular type. 
+		/// Serves as a hash function for a particular type.
 		/// </summary>
 		/// <returns>
 		/// A hash code for the current <see cref="T:System.Object"/>.

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace Junior.Common
@@ -7,6 +8,7 @@ namespace Junior.Common
 	/// Safely converts a <see cref="float"/> to an <see cref="int"/> for floating-point comparisons.
 	/// </summary>
 	[StructLayout(LayoutKind.Explicit)]
+	[DebuggerStepThrough]
 	public struct FloatToInt : IEquatable<FloatToInt>, IEquatable<float>, IEquatable<int>, IComparable<FloatToInt>, IComparable<float>, IComparable<int>
 	{
 		/// <summary>
@@ -71,7 +73,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(FloatToInt other)
@@ -83,7 +85,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(float other)
@@ -95,7 +97,7 @@ namespace Junior.Common
 		/// Compares the current object with another object of the same type.
 		/// </summary>
 		/// <returns>
-		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>. 
+		/// A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other"/> parameter.Zero This object is equal to <paramref name="other"/>. Greater than zero This object is greater than <paramref name="other"/>.
 		/// </returns>
 		/// <param name="other">An object to compare with this object.</param>
 		public int CompareTo(int other)
@@ -109,7 +111,8 @@ namespace Junior.Common
 		/// <returns>
 		/// true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
 		/// </returns>
-		/// <param name="obj">Another object to compare to. </param><filterpriority>2</filterpriority>
+		/// <param name="obj">Another object to compare to. </param>
+		/// <filterpriority>2</filterpriority>
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))

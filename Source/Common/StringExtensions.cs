@@ -10,6 +10,7 @@ namespace Junior.Common
 	/// <summary>
 	/// Extensions for the <see cref="string"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class StringExtensions
 	{
 		/// <summary>
@@ -18,7 +19,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <returns>The MD5-hashed value without hyphens.</returns>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-		[DebuggerNonUserCode]
 		public static string ToMd5HexString(this string value)
 		{
 			value.ThrowIfNull("value");
@@ -35,7 +35,6 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <returns>null if <paramref name="value"/> is equal to <see cref="string.Empty"/>; otherwise, <paramref name="value"/>.</returns>
-		[DebuggerNonUserCode]
 		public static string EmptyToNull(this string value)
 		{
 			return value == "" ? null : value;
@@ -46,7 +45,6 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <returns>null if <paramref name="value"/> is equal to <see cref="string.Empty"/> or consists of all whitespace characters; otherwise, <paramref name="value"/>.</returns>
-		[DebuggerNonUserCode]
 		public static string EmptyOrWhiteSpaceToNull(this string value)
 		{
 			return value != null ? (value.Any(t => !Char.IsWhiteSpace(t)) ? value : null) : null;
@@ -58,7 +56,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <param name="numberStyles">Number styles to allow during conversion.</param>
 		/// <returns><paramref name="value"/> as a <see cref="decimal"/> if the string is a valid <see cref="decimal"/> in the specified style; otherwise, null.</returns>
-		[DebuggerNonUserCode]
 		public static decimal? ToDecimal(this string value, NumberStyles numberStyles)
 		{
 			decimal result;
@@ -73,7 +70,6 @@ namespace Junior.Common
 		/// <param name="numberStyles">Number styles to allow during conversion.</param>
 		/// <param name="defaultValue">The value to return if <paramref name="value"/> cannot be converted to a <see cref="decimal"/>.</param>
 		/// <returns><paramref name="value"/> as a <see cref="decimal"/> if the string is a valid <see cref="decimal"/> in the specified style; otherwise, null.</returns>
-		[DebuggerNonUserCode]
 		public static decimal ToDecimal(this string value, NumberStyles numberStyles, decimal defaultValue)
 		{
 			decimal result;
@@ -88,7 +84,6 @@ namespace Junior.Common
 		/// <param name="numberStyles">Number styles to allow during conversion.</param>
 		/// <param name="result">The converted string, if conversion succeeded; otherwise, default(<see cref="decimal"/>).</param>
 		/// <returns>true if conversion succeeded; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool TryToDecimal(this string value, NumberStyles numberStyles, out decimal result)
 		{
 			return Decimal.TryParse(value, numberStyles, null, out result);
@@ -100,7 +95,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <param name="numberStyles">Number styles to allow during testing.</param>
 		/// <returns>true if <paramref name="value"/> can be converted to <see cref="decimal"/>; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool CanToDecimal(this string value, NumberStyles numberStyles)
 		{
 			decimal t;
@@ -113,7 +107,6 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <returns><paramref name="value"/> as <typeparamref name="T"/> if the string is a valid <typeparamref name="T"/>; otherwise, null.</returns>
-		[DebuggerNonUserCode]
 		public static T? ToEnum<T>(this string value)
 			where T : struct
 		{
@@ -126,7 +119,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <param name="ignoreCase">Determines if case must be ignored.</param>
 		/// <returns><paramref name="value"/> as <typeparamref name="T"/> if the string is a valid <typeparamref name="T"/>; otherwise, null.</returns>
-		[DebuggerNonUserCode]
 		public static T? ToEnum<T>(this string value, bool ignoreCase)
 			where T : struct
 		{
@@ -151,7 +143,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <param name="defaultValue">The value to return if <paramref name="value"/> cannot be converted to <typeparamref name="T"/>.</param>
 		/// <returns><paramref name="value"/> converted to <typeparamref name="T"/> if conversion succeeded; otherwise, <paramref name="defaultValue"/>.</returns>
-		[DebuggerNonUserCode]
 		public static T ToEnum<T>(this string value, T defaultValue)
 			where T : struct
 		{
@@ -165,7 +156,6 @@ namespace Junior.Common
 		/// <param name="defaultValue">The value to return if <paramref name="value"/> cannot be converted to <typeparamref name="T"/>.</param>
 		/// <param name="ignoreCase">Determines if case must be ignored.</param>
 		/// <returns><paramref name="value"/> converted to <typeparamref name="T"/> if conversion succeeded; otherwise, <paramref name="defaultValue"/>.</returns>
-		[DebuggerNonUserCode]
 		public static T ToEnum<T>(this string value, T defaultValue, bool ignoreCase)
 			where T : struct
 		{
@@ -190,7 +180,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <param name="result">The converted string, if conversion succeeded; otherwise, default(<typeparamref name="T"/>).</param>
 		/// <returns>true if conversion succeeded; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool TryToEnum<T>(this string value, out T result)
 			where T : struct
 		{
@@ -213,7 +202,6 @@ namespace Junior.Common
 		/// <param name="ignoreCase">Determines if case must be ignored.</param>
 		/// <param name="result">The converted string, if conversion succeeded; otherwise, default(<typeparamref name="T"/>).</param>
 		/// <returns>true if conversion succeeded; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool TryToEnum<T>(this string value, bool ignoreCase, out T result)
 			where T : struct
 		{
@@ -234,7 +222,6 @@ namespace Junior.Common
 		/// </summary>
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <returns>true if <paramref name="value"/> can be converted to <typeparamref name="T"/>; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool CanToEnum<T>(this string value)
 			where T : struct
 		{
@@ -249,7 +236,6 @@ namespace Junior.Common
 		/// <param name="value">A <see cref="string"/>.</param>
 		/// <param name="ignoreCase">Determines if case must be ignored.</param>
 		/// <returns>true if <paramref name="value"/> can be converted to <typeparamref name="T"/>; otherwise, false.</returns>
-		[DebuggerNonUserCode]
 		public static bool CanToEnum<T>(this string value, bool ignoreCase)
 			where T : struct
 		{
@@ -266,7 +252,6 @@ namespace Junior.Common
 		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
-		[DebuggerNonUserCode]
 		public static void ThrowIfNullOrEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
 		{
 			value.ThrowIfNull(paramName);
@@ -284,7 +269,6 @@ namespace Junior.Common
 		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
-		[DebuggerNonUserCode]
 		public static void ThrowIfNullOrWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
 		{
 			value.ThrowIfNull(paramName);
@@ -301,7 +285,6 @@ namespace Junior.Common
 		/// <param name="paramName">The value's parameter name.</param>
 		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
-		[DebuggerNonUserCode]
 		public static void ThrowIfEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
 		{
 			if (value == "")
@@ -317,7 +300,6 @@ namespace Junior.Common
 		/// <param name="paramName">The value's parameter name.</param>
 		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
-		[DebuggerNonUserCode]
 		public static void ThrowIfWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
 		{
 			if (value != null && String.IsNullOrWhiteSpace(value))
@@ -335,7 +317,6 @@ namespace Junior.Common
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
 		/// <returns>the specified value</returns>
-		[DebuggerNonUserCode]
 		public static string EnsureNotNullOrEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
 		{
 			value.ThrowIfNull(paramName);
@@ -356,7 +337,6 @@ namespace Junior.Common
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
 		/// <returns>the specified value</returns>
-		[DebuggerNonUserCode]
 		public static string EnsureNotNullOrWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
 		{
 			value.ThrowIfNull(paramName);
@@ -376,7 +356,6 @@ namespace Junior.Common
 		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty.</exception>
 		/// <returns>the specified value</returns>
-		[DebuggerNonUserCode]
 		public static string EnsureNotEmpty(this string value, string paramName, string argumentExceptionMessage = "String is empty.")
 		{
 			if (value == "")
@@ -395,7 +374,6 @@ namespace Junior.Common
 		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
 		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is empty or consists only of whitespace.</exception>
 		/// <returns>the specified value</returns>
-		[DebuggerNonUserCode]
 		public static string EnsureNotWhitespace(this string value, string paramName, string argumentExceptionMessage = "String is empty or consists only of whitespace.")
 		{
 			if (value != null && String.IsNullOrWhiteSpace(value))
@@ -404,6 +382,26 @@ namespace Junior.Common
 			}
 
 			return value;
+		}
+
+		/// <summary>
+		/// Truncates a string to a maximum of <paramref name="length"/> characters.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="length">The maximum length of the returned string.</param>
+		/// <returns>A string of no more than <paramref name="length"/> characters.</returns>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is null.</exception>
+		/// <exception cref="ArgumentOutOfRangeException">Thrown when <paramref name="length"/> is less than 0.</exception>
+		public static string Truncate(this string value, int length)
+		{
+			value.ThrowIfNull("value");
+
+			if (length < 0)
+			{
+				throw new ArgumentOutOfRangeException("length", length, "Length must be at least 0.");
+			}
+
+			return length >= value.Length ? value : value.Substring(0, length);
 		}
 	}
 }

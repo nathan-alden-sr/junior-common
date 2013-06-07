@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 // ReSharper disable StaticFieldInGenericType
 
@@ -7,6 +8,7 @@ namespace Junior.Common
 	/// <summary>
 	/// A nestable per-thread context. Contexts must always be disposed when they are exited to ensure proper behavior.
 	/// </summary>
+	[DebuggerStepThrough]
 	public abstract class ThreadLocalContext<T> : IDisposable
 		where T : ThreadLocalContext<T>
 	{
