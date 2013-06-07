@@ -470,6 +470,92 @@ namespace Junior.Common.UnitTests.Common
 		}
 
 		[TestFixture]
+		public class When_trimming_the_end_of_a_string
+		{
+			[Test]
+			[TestCase("FooBar", "Bar", "Foo")]
+			[TestCase("FooBar", "Bar2", "FooBar")]
+			[TestCase("FooBar", "", "FooBar")]
+			public void Must_trim_value_correctly(string value, string trimString, string expected)
+			{
+				Assert.That(value.TrimEnd(trimString), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
+		public class When_trimming_the_end_of_a_string_and_ignoring_case
+		{
+			[Test]
+			[TestCase("FooBar", "bar", "Foo")]
+			[TestCase("FooBar", "Bar", "Foo")]
+			[TestCase("FooBar", "bar2", "FooBar")]
+			[TestCase("FooBar", "bar2", "FooBar")]
+			[TestCase("FooBar", "", "FooBar")]
+			public void Must_trim_value_correctly(string value, string trimString, string expected)
+			{
+				Assert.That(value.TrimEnd(trimString, true, CultureInfo.InvariantCulture), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
+		public class When_trimming_the_end_of_a_string_and_using_a_comparison_type
+		{
+			[Test]
+			[TestCase("FooBar", "bar", "Foo")]
+			[TestCase("FooBar", "Bar", "Foo")]
+			[TestCase("FooBar", "bar2", "FooBar")]
+			[TestCase("FooBar", "bar2", "FooBar")]
+			[TestCase("FooBar", "", "FooBar")]
+			public void Must_trim_value_correctly(string value, string trimString, string expected)
+			{
+				Assert.That(value.TrimEnd(trimString, StringComparison.OrdinalIgnoreCase), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
+		public class When_trimming_the_start_of_a_string
+		{
+			[Test]
+			[TestCase("FooBar", "Foo", "Bar")]
+			[TestCase("FooBar", "Foo2", "FooBar")]
+			[TestCase("FooBar", "", "FooBar")]
+			public void Must_trim_value_correctly(string value, string trimString, string expected)
+			{
+				Assert.That(value.TrimStart(trimString), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
+		public class When_trimming_the_start_of_a_string_and_ignoring_case
+		{
+			[Test]
+			[TestCase("FooBar", "foo", "Bar")]
+			[TestCase("FooBar", "Foo", "Bar")]
+			[TestCase("FooBar", "foo2", "FooBar")]
+			[TestCase("FooBar", "Foo2", "FooBar")]
+			[TestCase("FooBar", "", "FooBar")]
+			public void Must_trim_value_correctly(string value, string trimString, string expected)
+			{
+				Assert.That(value.TrimStart(trimString, true, CultureInfo.InvariantCulture), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
+		public class When_trimming_the_start_of_a_string_and_using_a_comparison_type
+		{
+			[Test]
+			[TestCase("FooBar", "foo", "Bar")]
+			[TestCase("FooBar", "Foo", "Bar")]
+			[TestCase("FooBar", "foo2", "FooBar")]
+			[TestCase("FooBar", "Foo2", "FooBar")]
+			[TestCase("FooBar", "", "FooBar")]
+			public void Must_trim_value_correctly(string value, string trimString, string expected)
+			{
+				Assert.That(value.TrimStart(trimString, StringComparison.OrdinalIgnoreCase), Is.EqualTo(expected));
+			}
+		}
+
+		[TestFixture]
 		public class When_truncating_string
 		{
 			[Test]

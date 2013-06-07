@@ -403,5 +403,95 @@ namespace Junior.Common
 
 			return length >= value.Length ? value : value.Substring(0, length);
 		}
+
+		/// <summary>
+		/// Removes a leading occurrence of the specified string from <paramref name="value"/>.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="trimString">The string to trim from <paramref name="value"/>.</param>
+		/// <returns><paramref name="value"/> with a leading occurrence of <paramref name="trimString"/> removed.</returns>
+		public static string TrimStart(this string value, string trimString)
+		{
+			value.ThrowIfNull("value");
+			trimString.ThrowIfNull("trimString");
+
+			return value.StartsWith(trimString) ? value.Substring(trimString.Length) : value;
+		}
+
+		/// <summary>
+		/// Removes a leading occurrence of the specified string from <paramref name="value"/>.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="trimString">The string to trim from <paramref name="value"/>.</param>
+		/// <param name="comparisonType">One of the enumeration values that determines how this string and value are compared.</param>
+		/// <returns><paramref name="value"/> with a leading occurrence of <paramref name="trimString"/> removed.</returns>
+		public static string TrimStart(this string value, string trimString, StringComparison comparisonType)
+		{
+			value.ThrowIfNull("value");
+			trimString.ThrowIfNull("trimString");
+
+			return value.StartsWith(trimString, comparisonType) ? value.Substring(trimString.Length) : value;
+		}
+
+		/// <summary>
+		/// Removes a leading occurrence of the specified string from <paramref name="value"/>.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="trimString">The string to trim from <paramref name="value"/>.</param>
+		/// <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+		/// <param name="culture">Cultural information that determines how this string and value are compared. If culture is null, the current culture is used.</param>
+		/// <returns><paramref name="value"/> with a leading occurrence of <paramref name="trimString"/> removed.</returns>
+		public static string TrimStart(this string value, string trimString, bool ignoreCase, CultureInfo culture)
+		{
+			value.ThrowIfNull("value");
+			trimString.ThrowIfNull("trimString");
+
+			return value.StartsWith(trimString, true, culture) ? value.Substring(trimString.Length) : value;
+		}
+
+		/// <summary>
+		/// Removes a leading occurrence of the specified string from <paramref name="value"/>.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="trimString">The string to trim from <paramref name="value"/>.</param>
+		/// <returns><paramref name="value"/> with a leading occurrence of <paramref name="trimString"/> removed.</returns>
+		public static string TrimEnd(this string value, string trimString)
+		{
+			value.ThrowIfNull("value");
+			trimString.ThrowIfNull("trimString");
+
+			return value.EndsWith(trimString) ? value.Substring(0, value.Length - trimString.Length) : value;
+		}
+
+		/// <summary>
+		/// Removes a leading occurrence of the specified string from <paramref name="value"/>.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="trimString">The string to trim from <paramref name="value"/>.</param>
+		/// <param name="comparisonType">One of the enumeration values that determines how this string and value are compared.</param>
+		/// <returns><paramref name="value"/> with a leading occurrence of <paramref name="trimString"/> removed.</returns>
+		public static string TrimEnd(this string value, string trimString, StringComparison comparisonType)
+		{
+			value.ThrowIfNull("value");
+			trimString.ThrowIfNull("trimString");
+
+			return value.EndsWith(trimString, comparisonType) ? value.Substring(0, value.Length - trimString.Length) : value;
+		}
+
+		/// <summary>
+		/// Removes a leading occurrence of the specified string from <paramref name="value"/>.
+		/// </summary>
+		/// <param name="value">A string.</param>
+		/// <param name="trimString">The string to trim from <paramref name="value"/>.</param>
+		/// <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+		/// <param name="culture">Cultural information that determines how this string and value are compared. If culture is null, the current culture is used.</param>
+		/// <returns><paramref name="value"/> with a leading occurrence of <paramref name="trimString"/> removed.</returns>
+		public static string TrimEnd(this string value, string trimString, bool ignoreCase, CultureInfo culture)
+		{
+			value.ThrowIfNull("value");
+			trimString.ThrowIfNull("trimString");
+
+			return value.EndsWith(trimString, true, culture) ? value.Substring(0, value.Length - trimString.Length) : value;
+		}
 	}
 }
