@@ -25,5 +25,14 @@ namespace Junior.Common
 		{
 			return Task.FromResult((T)null);
 		}
+
+		/// <summary>Retrieves a <see cref="Task{T}"/> with a null result.</summary>
+		/// <param name="taskFactory">A task factory.</param>
+		/// <returns>A <see cref="Task{T}"/> whose result is null.</returns>
+		public static Task<T?> Empty<T>(this TaskFactory<T?> taskFactory)
+			where T : struct
+		{
+			return Task.FromResult((T?)null);
+		}
 	}
 }
