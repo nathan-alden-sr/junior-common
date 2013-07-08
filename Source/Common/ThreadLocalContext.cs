@@ -1,8 +1,6 @@
 using System;
 using System.Diagnostics;
 
-// ReSharper disable StaticFieldInGenericType
-
 namespace Junior.Common
 {
 	/// <summary>

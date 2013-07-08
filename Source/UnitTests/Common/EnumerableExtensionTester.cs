@@ -228,14 +228,14 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_retrieve_correct_object()
 			{
 				var systemUnderTest = new[]
-					{
-						"Test",
-						"Test1",
-						"Test2",
-						"Test10",
-						"Six",
-						"Four"
-					};
+				{
+					"Test",
+					"Test1",
+					"Test2",
+					"Test10",
+					"Six",
+					"Four"
+				};
 
 				Assert.That(systemUnderTest.MaxBy(arg => arg.Length), Is.EqualTo("Test10"));
 			}
@@ -248,14 +248,14 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_retrieve_correct_object()
 			{
 				var systemUnderTest = new[]
-					{
-						"Test",
-						"Test1",
-						"Test2",
-						"Test10",
-						"Six",
-						"Four"
-					};
+				{
+					"Test",
+					"Test1",
+					"Test2",
+					"Test10",
+					"Six",
+					"Four"
+				};
 
 				Assert.That(systemUnderTest.MinBy(arg => arg.Length), Is.EqualTo("Six"));
 			}

@@ -117,9 +117,9 @@ namespace Junior.Common
 			get
 			{
 				var nodes = new List<TBinaryTreeNode>
-					{
-						(TBinaryTreeNode)this
-					};
+				{
+					(TBinaryTreeNode)this
+				};
 
 				nodes.AddRange(Ancestors);
 
@@ -159,9 +159,9 @@ namespace Junior.Common
 			get
 			{
 				var nodes = new List<TBinaryTreeNode>
-					{
-						(TBinaryTreeNode)this
-					};
+				{
+					(TBinaryTreeNode)this
+				};
 
 				nodes.AddRange(Descendants);
 

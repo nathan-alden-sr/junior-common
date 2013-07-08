@@ -31,8 +31,8 @@ namespace Junior.Common
 		public static IEnumerable<PropertyInfo> GetAllProperties(this Type type, BindingFlags bindingFlags)
 		{
 			return type.IsInterface
-				       ? GetAllInterfaceProperties(type, bindingFlags)
-				       : type.GetProperties(bindingFlags);
+				? GetAllInterfaceProperties(type, bindingFlags)
+				: type.GetProperties(bindingFlags);
 		}
 
 		/// <summary>

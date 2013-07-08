@@ -63,6 +63,7 @@
     <Compile Include="InvalidGenericTypeArgumentException.cs" />
     <Compile Include="NullableCachedDelegate.cs" />
     <Compile Include="FloatToInt.cs" />
+    <Compile Include="ResettableLazy.cs" />
     <Compile Include="StopwatchContext.cs" />
     <Compile Include="TaskFactoryExtensions.cs" />
     <Compile Include="UnitedStatesNineDigitPostalCode.cs" />

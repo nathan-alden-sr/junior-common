@@ -185,10 +185,7 @@ namespace Junior.Common
 		/// <returns>An enumerable consisting of the single element <paramref name="value"/></returns>
 		public static IEnumerable<T> ToEnumerable<T>(this T value)
 		{
-			return new[]
-				{
-					value
-				};
+			return new[] { value };
 		}
 
 		/// <summary>

@@ -16,6 +16,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets or sets the left descendant node of the current node.
 		/// </summary>
@@ -23,6 +24,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets or sets the right descendant node of the current node.
 		/// </summary>
@@ -30,6 +32,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the root node.
 		/// </summary>
@@ -37,6 +40,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the ancestor node of the current node.
 		/// </summary>
@@ -44,6 +48,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets all ancestor nodes of the current node.
 		/// </summary>
@@ -51,6 +56,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets all ancestor nodes of the current node, including the current node.
 		/// </summary>
@@ -58,6 +64,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets all descendant nodes of the current node.
 		/// </summary>
@@ -65,6 +72,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets all descendant nodes of the current node, including the current node.
 		/// </summary>
@@ -72,6 +80,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the sibling node of the current node.
 		/// </summary>
@@ -79,6 +88,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the sibling node of the current node, including the current node.
 		/// </summary>
@@ -86,6 +96,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets all leaf nodes from the root.
 		/// </summary>
@@ -93,6 +104,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets all leaf nodes from the current node.
 		/// </summary>
@@ -100,6 +112,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the depth of the current node. The root node is always depth 0.
 		/// </summary>
@@ -107,6 +120,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the deepest depth for all nodes in the tree.
 		/// </summary>
@@ -114,6 +128,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets a count of descendant nodes from the current node, plus the current node.
 		/// </summary>
@@ -121,6 +136,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Determines if the current node is the root node. A root node has no ancestor.
 		/// </summary>
@@ -128,6 +144,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Determines if the current node is a leaf node. A leaf node has no descendants.
 		/// </summary>

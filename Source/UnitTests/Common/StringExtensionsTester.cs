@@ -9,9 +9,7 @@ namespace Junior.Common.UnitTests.Common
 	{
 		private enum TestEnum
 		{
-			// ReSharper disable UnusedMember.Local
 			Value1,
-			// ReSharper restore UnusedMember.Local
 			Value2
 		}
 

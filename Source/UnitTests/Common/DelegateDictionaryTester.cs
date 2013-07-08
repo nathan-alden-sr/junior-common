@@ -15,11 +15,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_clear_all_cached_values_but_not_delegates()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest["Key1"];
@@ -40,11 +40,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_clear_all_delegates_and_cached_values()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest["Key1"];
@@ -65,11 +65,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_invoke_uncached_delegates_and_return_all_keyvaluepairs()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest["Key1"];
@@ -94,9 +94,9 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_remove_delegate_and_cached_value()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key", arg => 1 }
-					};
+				{
+					{ "Key", arg => 1 }
+				};
 
 #pragma warning disable 168
 				int value = systemUnderTest["Key"];
@@ -116,11 +116,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_invoke_uncached_delegates_and_return_all_values()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest["Key1"];
@@ -138,11 +138,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_return_only_previously_cached_values()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest["Key1"];
@@ -160,11 +160,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_return_count_of_all_items_added()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 				Assert.That(systemUnderTest.DelegateCount, Is.EqualTo(3));
 			}
@@ -177,11 +177,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_return_all_keys_added()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 				Assert.That(systemUnderTest.Keys, Is.EquivalentTo(new[] { "Key1", "Key2", "Key3" }));
 			}
@@ -194,9 +194,9 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_return_delegate_result()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key", arg => 1 }
-					};
+				{
+					{ "Key", arg => 1 }
+				};
 
 				Assert.That(systemUnderTest["Key"], Is.EqualTo(1));
 			}
@@ -209,11 +209,11 @@ namespace Junior.Common.UnitTests.Common
 			public void Must_return_count_of_all_items_accessed()
 			{
 				var systemUnderTest = new DelegateDictionary<string, int>
-					{
-						{ "Key1", arg => 0 },
-						{ "Key2", arg => 1 },
-						{ "Key3", arg => 2 }
-					};
+				{
+					{ "Key1", arg => 0 },
+					{ "Key2", arg => 1 },
+					{ "Key3", arg => 2 }
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest["Key1"];
@@ -234,10 +234,10 @@ namespace Junior.Common.UnitTests.Common
 				var systemUnderTest = new DelegateDictionary<string, int>();
 				int count = 0;
 				Func<string, int> @delegate = arg =>
-					{
-						count++;
-						return 1;
-					};
+				{
+					count++;
+					return 1;
+				};
 
 #pragma warning disable 168
 				int value1 = systemUnderTest[key, @delegate];

@@ -61,20 +61,20 @@ namespace Junior.Common
 			Interlocked.Increment(ref _taskCount);
 			ThreadPool.UnsafeQueueUserWorkItem(
 				state =>
+				{
+					// Note that the current thread is now processing work items.
+					// This is necessary to enable inlining of tasks into this thread.
+					_currentThreadIsProcessingItems = true;
+					try
 					{
-						// Note that the current thread is now processing work items.
-						// This is necessary to enable inlining of tasks into this thread.
-						_currentThreadIsProcessingItems = true;
-						try
-						{
-							TryExecuteTaskWithCompletionTracking(task);
-						}
-						finally
-						{
-							// We're done processing items on the current thread
-							_currentThreadIsProcessingItems = false;
-						}
-					},
+						TryExecuteTaskWithCompletionTracking(task);
+					}
+					finally
+					{
+						// We're done processing items on the current thread
+						_currentThreadIsProcessingItems = false;
+					}
+				},
 				null);
 		}
 

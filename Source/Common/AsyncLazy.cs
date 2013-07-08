@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Junior.Common
 {
 	/// <summary>
-	/// Initializes a value lazily and asynchronously by using <see cref="Task{T}"/>.
+	/// Initializes a value lazily and asynchronously by using <see cref="Task{TResult}"/>.
 	/// </summary>
 	public class AsyncLazy<T> : Lazy<Task<T>>
 	{

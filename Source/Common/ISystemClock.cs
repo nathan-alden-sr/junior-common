@@ -14,6 +14,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the current local date and time.
 		/// </summary>
@@ -21,6 +22,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the current local time.
 		/// </summary>
@@ -28,6 +30,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the current UTC date.
 		/// </summary>
@@ -35,6 +38,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the current UTC date and time.
 		/// </summary>
@@ -42,6 +46,7 @@ namespace Junior.Common
 		{
 			get;
 		}
+
 		/// <summary>
 		/// Gets the current UTC time.
 		/// </summary>

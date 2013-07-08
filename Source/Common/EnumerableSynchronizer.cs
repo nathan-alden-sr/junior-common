@@ -157,33 +157,33 @@ namespace Junior.Common
 		public async Task Synchronize(Action<TItem2> addedElementDelegate = null, Action<TItem1> removedElementDelegate = null, Action<TItem2> commonElementDelegate = null)
 		{
 			await Task.Run(() =>
+			{
+				if (!EnumerablesContainSameElements)
 				{
-					if (!EnumerablesContainSameElements)
+					if (removedElementDelegate != null)
 					{
-						if (removedElementDelegate != null)
+						foreach (TItem1 removedItem in RemovedElements)
 						{
-							foreach (TItem1 removedItem in RemovedElements)
-							{
-								removedElementDelegate(removedItem);
-							}
-						}
-						if (addedElementDelegate != null)
-						{
-							foreach (TItem2 addedItem in AddedElements)
-							{
-								addedElementDelegate(addedItem);
-							}
+							removedElementDelegate(removedItem);
 						}
 					}
-					if (commonElementDelegate == null)
+					if (addedElementDelegate != null)
 					{
-						return;
+						foreach (TItem2 addedItem in AddedElements)
+						{
+							addedElementDelegate(addedItem);
+						}
 					}
-					foreach (TItem2 commonItem in CommonElements)
-					{
-						commonElementDelegate(commonItem);
-					}
-				});
+				}
+				if (commonElementDelegate == null)
+				{
+					return;
+				}
+				foreach (TItem2 commonItem in CommonElements)
+				{
+					commonElementDelegate(commonItem);
+				}
+			});
 		}
 
 		private static bool DefaultComparer(TItem1 item1, TItem2 item2)

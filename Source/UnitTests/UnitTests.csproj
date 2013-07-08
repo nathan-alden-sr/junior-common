@@ -59,6 +59,7 @@
     <Compile Include="Common\DoubleToLongTester.cs" />
     <Compile Include="Common\FloatToIntTester.cs" />
     <Compile Include="Common\NullableCachedDelegateTester.cs" />
+    <Compile Include="Common\ResettableLazyTester.cs" />
     <Compile Include="Common\StopwatchContextTester.cs" />
     <Compile Include="Common\TypeExtensionsTester.cs" />
     <Compile Include="Common\UnitedStatesNineDigitPostalCodeTester.cs" />

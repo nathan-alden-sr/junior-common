@@ -94,9 +94,7 @@ namespace Junior.Common
 			}
 			catch (InvalidOperationException)
 			{
-				// ReSharper disable CompareNonConstrainedGenericWithNull
 				throw new ArgumentOutOfRangeException("first", ((object)first).IfNotNull(arg => arg.ToString()), "First value not found.");
-				// ReSharper restore CompareNonConstrainedGenericWithNull
 			}
 		}
 
@@ -147,9 +145,7 @@ namespace Junior.Common
 			}
 			catch (InvalidOperationException)
 			{
-				// ReSharper disable CompareNonConstrainedGenericWithNull
 				throw new ArgumentOutOfRangeException("second", ((object)second).IfNotNull(arg => arg.ToString()), "Second value not found.");
-				// ReSharper restore CompareNonConstrainedGenericWithNull
 			}
 		}
 

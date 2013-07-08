@@ -14,9 +14,8 @@ namespace Junior.Common.UnitTests.Common
 		{
 		}
 
-		// ReSharper disable UnusedTypeParameter
+		// ReSharper disable once UnusedTypeParameter
 		private interface IGenericAncestor<T>
-			// ReSharper restore UnusedTypeParameter
 		{
 		}
 
@@ -28,21 +27,18 @@ namespace Junior.Common.UnitTests.Common
 		{
 		}
 
-		// ReSharper disable UnusedTypeParameter
+		// ReSharper disable once UnusedTypeParameter
 		private interface ITestGeneric1<T>
-			// ReSharper restore UnusedTypeParameter
 		{
 		}
 
-		// ReSharper disable UnusedTypeParameter
+		// ReSharper disable once UnusedTypeParameter
 		private interface ITestGeneric2<T>
-			// ReSharper restore UnusedTypeParameter
 		{
 		}
 
-		// ReSharper disable ClassNeverInstantiated.Local
+		// ReSharper disable once ClassNeverInstantiated.Local
 		private class Test1 : ITest
-			// ReSharper restore ClassNeverInstantiated.Local
 		{
 		}
 
