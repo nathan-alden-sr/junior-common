@@ -57,6 +57,7 @@
     <Compile Include="Common\DelegateDictionaryTester.cs" />
     <Compile Include="Common\CachedDelegateTester.cs" />
     <Compile Include="Common\DoubleToLongTester.cs" />
+    <Compile Include="Common\EmailAddressTester.cs" />
     <Compile Include="Common\FloatToIntTester.cs" />
     <Compile Include="Common\NullableCachedDelegateTester.cs" />
     <Compile Include="Common\ResettableLazyTester.cs" />

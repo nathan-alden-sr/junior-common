@@ -227,7 +227,7 @@ namespace Junior.Common
 
 		private static bool IsEmailAddress(string value)
 		{
-			return Regex.IsMatch(value, RegexPattern);
+			return Regex.IsMatch(value, RegexPattern, RegexOptions.IgnoreCase);
 		}
 	}
 }
