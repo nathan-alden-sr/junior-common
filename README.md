@@ -12,5 +12,5 @@ JuniorCommon has no dependencies other than the .NET Framework.
 
 What are JuniorCommon's system requirements?
 -
-* .NET Framework 4.0
+* .NET Framework 3.5 - 4.5.1
 * Any processor architecture

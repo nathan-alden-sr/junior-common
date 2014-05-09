@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>Junior.Common.Net45</id>
+		<version>$version$</version>
+		<title>Junior.Common for .NET 4.5</title>
+		<authors>Nathan Alden Sr.</authors>
+		<description>Junior.Common is a common library used by all other Junior projects.</description>
+		<releaseNotes></releaseNotes>
+		<projectUrl>https://github.com/NathanAlden/JuniorCommon</projectUrl>
+		<dependencies>
+			<group>
+				<dependency id="Junior.Common.Net35" version="4.0.0"/>
+				<dependency id="Junior.Common.Net40" version="4.0.0"/>
+			</group>
+		</dependencies>
+		<references>
+			<reference file="Junior.Common.Net45.dll"/>
+		</references>
+		<tags>Junior</tags>
+	</metadata>
+	<files>
+		<file src="NuGet Staging\LICENSE"/>
+		<file src="NuGet Staging\README.md"/>
+		<file src="NuGet Staging\bin\Junior.Common.Net45.*" target="lib\net35"/>
+	</files>
+</package>

@@ -2,6 +2,10 @@
 <project name="JuniorCommon" default="Build" xmlns="http://nant.sf.net/schemas/nant.xsd">
 	<!-- NAnt -->
 	<property name="nant.settings.currentframework" value="net-4.0"/>
+	
+	<property name="SubProject" value=""/>
+	<property name="AssemblyInfoPath" value=""/>
+	<property name="NuGetVersion" value=""/>
 
 	<!-- Build configuration -->
 	<property name="Platform" value="Any CPU" overwrite="false"/>
@@ -17,10 +21,10 @@
 	<property name="NUnitResultsDirectory" value="${path::combine(BuildDirectory, 'NUnit Results')}"/>
 
 	<!-- Paths -->
-	<property name="NUnitConsolePath" value="${path::combine(BuildDirectory, 'NUnit-2.6.2\bin\nunit-console.exe')}"/>
-	<property name="NuGetPath" value="${path::combine(BuildDirectory, 'NuGet-2.0\NuGet.exe')}"/>
+	<property name="NUnitConsolePath" value="${path::combine(BuildDirectory, 'NUnit-2.6.3\bin\nunit-console.exe')}"/>
+	<property name="NuGetPath" value="${path::combine(BuildDirectory, 'NuGet-2.8.1\NuGet.exe')}"/>
 	<property name="SolutionPath" value="${path::combine(SourceDirectory, project::get-name() + '.sln')}"/>
-	<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'Common\Properties\AssemblyInfo.cs')}"/>
+	<property name="MSBuildPath" value="C:\Program Files (x86)\MSBuild\12.0\Bin\MSBuild.exe"/>
 
 	<!-- Build -->
 	<target name="Build">
@@ -29,16 +33,18 @@
 		<call target="RunUnitTests"/>
 		<if test="${BuildConfiguration == 'Release'}">
 			<call target="RecreateNuGetResultsDirectory"/>
-			<call target="StageNuGetFiles"/>
-			<call target="CreateNuGetPackage"/>
-			<call target="DeleteStagedFiles"/>
+			<foreach item="String" in="Net35,Net40,Net45" delim="," property="SubProject">
+				<call target="StageNuGetFiles"/>
+				<call target="CreateNuGetPackage"/>
+				<call target="DeleteStagedNuGetFiles"/>
+			</foreach>
 		</if>
 	</target>
 
 	<!-- Compile -->
 	<target name="Compile">
 		<exec
-			program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe"
+			program="${MSBuildPath}"
 			workingdir="."
 			verbose="true">
 			<arg value="${SolutionPath}"/>
@@ -82,6 +88,30 @@
 				<include name="README.md"/>
 			</fileset>
 		</copy>
+		<if test="${SubProject == 'Net35'}">
+			<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'Common.Net35\Properties\AssemblyInfo.cs')}"/>
+			<copy todir="${NuGetStagingBinDirectory}">
+				<fileset basedir="${path::combine(SourceDirectory, path::combine('Common.Net35\bin', BuildConfiguration))}">
+					<include name="Junior.Common.Net35.*"/>
+				</fileset>
+			</copy>
+		</if>
+		<if test="${SubProject == 'Net40'}">
+			<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'Common.Net40\Properties\AssemblyInfo.cs')}"/>
+			<copy todir="${NuGetStagingBinDirectory}">
+				<fileset basedir="${path::combine(SourceDirectory, path::combine('Common.Net40\bin', BuildConfiguration))}">
+					<include name="Junior.Common.Net40.*"/>
+				</fileset>
+			</copy>
+		</if>
+		<if test="${SubProject == 'Net45'}">
+			<property name="AssemblyInfoPath" value="${path::combine(SourceDirectory, 'Common.Net45\Properties\AssemblyInfo.cs')}"/>
+			<copy todir="${NuGetStagingBinDirectory}">
+				<fileset basedir="${path::combine(SourceDirectory, path::combine('Common.Net45\bin', BuildConfiguration))}">
+					<include name="Junior.Common.Net45.*"/>
+				</fileset>
+			</copy>
+		</if>
 		<copy todir="${NuGetStagingBinDirectory}">
 			<fileset basedir="${path::combine(SourceDirectory, 'Common\bin\' + BuildConfiguration)}">
 				<include name="Junior.Common.*"/>
@@ -118,14 +148,14 @@
 			workingdir="."
 			verbose="true">
 			<arg value="pack"/>
-			<arg value="NuGet.nuspec"/>
+			<arg value="NuGet-${SubProject}.nuspec"/>
 			<arg value="-Version"/>
 			<arg value="${NuGetVersion}"/>
 			<arg value="-OutputDirectory"/>
 			<arg value="${NuGetResultsDirectory}"/>
 		</exec>
 	</target>
-	<target name="DeleteStagedFiles">
+	<target name="DeleteStagedNuGetFiles">
 		<delete dir="${NuGetStagingDirectory}"/>
 	</target>
 </project>
