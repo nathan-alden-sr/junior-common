@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Junior.Common
+using Junior.Common.Net35;
+
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Maps between two values.

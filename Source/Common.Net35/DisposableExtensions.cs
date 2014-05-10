@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Extensions for the <see cref="IDisposable"/> type.

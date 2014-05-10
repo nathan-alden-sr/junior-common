@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Initializes a value lazily and asynchronously by using <see cref="Task{TResult}"/>.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class AsyncLazy<T> : Lazy<Task<T>>
 	{
 		/// <summary>

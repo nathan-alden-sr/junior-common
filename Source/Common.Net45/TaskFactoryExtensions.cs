@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Junior.Common
+namespace Junior.Common.Net45
 {
 	/// <summary>
 	/// Extensions for the <see cref="TaskFactory"/> and <see cref="TaskFactory{TResult}"/> types.

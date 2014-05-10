@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	internal static class TaskHelpers
 	{

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Safely converts a <see cref="float"/> to an <see cref="int"/> for floating-point comparisons.

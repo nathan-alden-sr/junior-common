@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Allows conversion to and from <see cref="Guid"/> and an <see cref="Array"/> of <see cref="Byte"/>.

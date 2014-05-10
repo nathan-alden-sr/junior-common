@@ -1,11 +1,13 @@
 using System;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// An exception thrown when a generic type argument is not supported by a method.
 	/// </summary>
+	[DebuggerStepThrough]
 	public class InvalidGenericTypeArgumentException : Exception
 	{
 		/// <summary>

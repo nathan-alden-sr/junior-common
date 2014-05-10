@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Extensions for the <see cref="object"/> type.
 	/// </summary>
+	[DebuggerStepThrough]
 	public static class ObjectExtensions
 	{
 		/// <summary>

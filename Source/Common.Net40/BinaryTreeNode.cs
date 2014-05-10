@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Junior.Common
+using Junior.Common.Net35;
+
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// A node in a binary tree. <see cref="BinaryTreeNode{TBinaryTreeNode,TValue}"/> allows the consumer to specify the actual node type and

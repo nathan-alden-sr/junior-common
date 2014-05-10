@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Junior.Common.Net35;
 
-namespace Junior.Common.UnitTests.Common
+using NUnit.Framework;
+
+namespace Junior.Common.UnitTests.Common.Net35
 {
 	public static class DoubleToLongTester
 	{

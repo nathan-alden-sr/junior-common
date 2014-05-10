@@ -1,6 +1,6 @@
 using System;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Represents the current system date and time in both local time and UTC time.

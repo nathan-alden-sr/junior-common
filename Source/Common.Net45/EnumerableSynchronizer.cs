@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Junior.Common
+using Junior.Common.Net35;
+
+namespace Junior.Common.Net45
 {
 	/// <summary>
 	/// Determines which elements in an initial enumerable have been removed, added or are common in a desired enumerable.

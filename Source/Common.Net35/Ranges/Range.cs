@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Junior.Common.Ranges
+namespace Junior.Common.Net35.Ranges
 {
 	/// <summary>
 	/// A range of <typeparamref name="T"/>.

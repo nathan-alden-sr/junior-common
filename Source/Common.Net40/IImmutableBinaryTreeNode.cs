@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Represents an immutable node in a binary tree. <see cref="IImmutableBinaryTreeNode{TBinaryTreeNode,TValue}"/> allows the consumer to specify

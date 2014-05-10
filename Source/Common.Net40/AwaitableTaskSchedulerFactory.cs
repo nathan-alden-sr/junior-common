@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Creates and starts a <see cref="T:System.Threading.Tasks.Task">Task</see> on a new <typeparamref name="T"/> instance.

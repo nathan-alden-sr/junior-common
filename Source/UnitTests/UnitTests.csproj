@@ -51,34 +51,31 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\AsyncLazyTester.cs" />
-    <Compile Include="Common\AwaitableTaskSchedulerTester.cs" />
-    <Compile Include="Common\BinaryTreeNodeTester.cs" />
-    <Compile Include="Common\DelegateDictionaryTester.cs" />
-    <Compile Include="Common\CachedDelegateTester.cs" />
-    <Compile Include="Common\DoubleToLongTester.cs" />
-    <Compile Include="Common\EmailAddressTester.cs" />
-    <Compile Include="Common\FloatToIntTester.cs" />
-    <Compile Include="Common\NullableCachedDelegateTester.cs" />
-    <Compile Include="Common\ResettableLazyTester.cs" />
-    <Compile Include="Common\StopwatchContextTester.cs" />
-    <Compile Include="Common\TypeExtensionsTester.cs" />
-    <Compile Include="Common\UnitedStatesNineDigitPostalCodeTester.cs" />
-    <Compile Include="Common\EnumerableExtensionTester.cs" />
-    <Compile Include="Common\EnumerableSynchronizerTester.cs" />
-    <Compile Include="Common\Ranges\NullableStartGreaterThanEndRangeTester.cs" />
-    <Compile Include="Common\Ranges\NullableStartGreaterThanOrEqualToEndRangeTester.cs" />
-    <Compile Include="Common\Ranges\NullableStartLessThanEndRangeTester.cs" />
-    <Compile Include="Common\Ranges\NullableStartLessThanOrEqualToEndRangeTester.cs" />
-    <Compile Include="Common\Ranges\StartGreaterThanEndRangeTester.cs" />
-    <Compile Include="Common\Ranges\StartGreaterThanOrEqualToEndRangeTester.cs" />
-    <Compile Include="Common\Ranges\StartLessThanEndRangeTester.cs" />
-    <Compile Include="Common\Md5StringTester.cs" />
-    <Compile Include="Common\ObjectExtensionsTester.cs" />
-    <Compile Include="Common\Ranges\StartLessThanOrEqualToEndRangeTester.cs" />
-    <Compile Include="Common\StringExtensionsTester.cs" />
-    <Compile Include="Common\ThreadLocalContextTester.cs" />
-    <Compile Include="Common\UnitedStatesFiveDigitPostalCodeTester.cs" />
+    <Compile Include="Common.Net40\AsyncLazyTester.cs" />
+    <Compile Include="Common.Net40\AwaitableTaskSchedulerTester.cs" />
+    <Compile Include="Common.Net40\BinaryTreeNodeTester.cs" />
+    <Compile Include="Common.Net35\DelegateDictionaryTester.cs" />
+    <Compile Include="Common.Net35\CachedDelegateTester.cs" />
+    <Compile Include="Common.Net35\DoubleToLongTester.cs" />
+    <Compile Include="Common.Net35\FloatToIntTester.cs" />
+    <Compile Include="Common.Net35\NullableCachedDelegateTester.cs" />
+    <Compile Include="Common.Net40\ResettableLazyTester.cs" />
+    <Compile Include="Common.Net35\StopwatchContextTester.cs" />
+    <Compile Include="Common.Net35\TypeExtensionsTester.cs" />
+    <Compile Include="Common.Net35\EnumerableExtensionTester.cs" />
+    <Compile Include="Common.Net45\EnumerableSynchronizerTester.cs" />
+    <Compile Include="Common.Net35\Ranges\NullableStartGreaterThanEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Ranges\NullableStartGreaterThanOrEqualToEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Ranges\NullableStartLessThanEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Ranges\NullableStartLessThanOrEqualToEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Ranges\StartGreaterThanEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Ranges\StartGreaterThanOrEqualToEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Ranges\StartLessThanEndRangeTester.cs" />
+    <Compile Include="Common.Net35\Md5StringTester.cs" />
+    <Compile Include="Common.Net35\ObjectExtensionsTester.cs" />
+    <Compile Include="Common.Net35\Ranges\StartLessThanOrEqualToEndRangeTester.cs" />
+    <Compile Include="Common.Net35\StringExtensionsTester.cs" />
+    <Compile Include="Common.Net35\ThreadLocalContextTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +83,12 @@
       <Link>JuniorCommon.snk</Link>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common.Net35\Common.Net35.csproj">
@@ -100,12 +103,6 @@
       <Project>{d3b68eb8-7118-4cf9-b4d9-36b6a2b3fd17}</Project>
       <Name>Common.Net45</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

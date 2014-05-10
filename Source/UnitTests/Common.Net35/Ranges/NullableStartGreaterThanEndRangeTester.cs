@@ -1,10 +1,10 @@
 ﻿using System;
 
-using Junior.Common.Ranges;
+using Junior.Common.Net35.Ranges;
 
 using NUnit.Framework;
 
-namespace Junior.Common.UnitTests.Common.Ranges
+namespace Junior.Common.UnitTests.Common.Net35.Ranges
 {
 	public static class NullableStartGreaterThanEndRangeTester
 	{

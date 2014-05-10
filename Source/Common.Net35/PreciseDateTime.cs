@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Represents a <see cref="DateTime"/> as a <see cref="long"/>. <see cref="DateTime.ToFileTimeUtc"/> is used to represent the <see cref="DateTime"/>.

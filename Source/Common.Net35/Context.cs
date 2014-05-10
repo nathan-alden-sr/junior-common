@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// A nestable per-process context. Contexts must always be disposed when they are exited to ensure proper behavior.

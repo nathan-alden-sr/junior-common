@@ -1,4 +1,4 @@
-﻿namespace Junior.Common
+﻿namespace Junior.Common.Net35
 {
 	internal class StringHelpers
 	{

@@ -7,7 +7,7 @@
     <ProjectGuid>{D3B68EB8-7118-4CF9-B4D9-36B6A2B3FD17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Junior.Common</RootNamespace>
+    <RootNamespace>Junior.Common.Net45</RootNamespace>
     <AssemblyName>Junior.Common.Net45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

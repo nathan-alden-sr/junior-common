@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// A caching dictionary of <see cref="Func{T,TResult}"/> tracked by <typeparamref name="TKey"/>.

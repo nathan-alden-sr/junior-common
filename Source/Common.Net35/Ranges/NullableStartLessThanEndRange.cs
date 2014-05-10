@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Junior.Common.Ranges
+namespace Junior.Common.Net35.Ranges
 {
 	/// <summary>
 	/// A range of nullable <typeparamref name="T"/> where the start must be less than the end.

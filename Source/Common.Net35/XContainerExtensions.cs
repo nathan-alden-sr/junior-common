@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Xml.Linq;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Extensions for the <see cref="XContainer"/> type.

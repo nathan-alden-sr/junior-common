@@ -1,9 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
+using Junior.Common.Net40;
+
 using NUnit.Framework;
 
-namespace Junior.Common.UnitTests.Common
+namespace Junior.Common.UnitTests.Common.Net40
 {
 	public static class AwaitableTaskSchedulerTester
 	{

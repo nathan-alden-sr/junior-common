@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Times how long it takes for a delegate to finish executing by using the <see cref="Stopwatch"/> class.

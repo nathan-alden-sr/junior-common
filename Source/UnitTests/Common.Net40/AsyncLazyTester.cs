@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Junior.Common.Net40;
 
-namespace Junior.Common.UnitTests.Common
+using NUnit.Framework;
+
+namespace Junior.Common.UnitTests.Common.Net40
 {
 	public static class AsyncLazyTester
 	{

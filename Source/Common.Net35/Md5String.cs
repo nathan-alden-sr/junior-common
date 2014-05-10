@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace Junior.Common
+namespace Junior.Common.Net35
 {
 	/// <summary>
 	/// Compares and converts MD5 strings.
@@ -12,15 +12,15 @@ namespace Junior.Common
 	public class Md5String : IEquatable<Md5String>, IComparable<Md5String>
 	{
 		/// <summary>
-		/// The regular expression pattern used by <see cref="EmailAddress"/> to validate hyphenated MD5 strings.
+		/// The regular expression pattern used to validate hyphenated MD5 strings.
 		/// </summary>
 		public const string HyphenatedRegexPattern = "^([0-9A-Fa-f]{2}-){15}([0-9A-Fa-f]{2})$";
 		/// <summary>
-		/// The regular expression pattern used by <see cref="EmailAddress"/> to validate non-hyphenated MD5 strings.
+		/// The regular expression pattern used to validate non-hyphenated MD5 strings.
 		/// </summary>
 		public const string NonHyphenatedRegexPattern = "^[0-9A-Fa-f]{32}$";
 		/// <summary>
-		/// The regular expression pattern used by <see cref="EmailAddress"/> to validate hyphenated and non-hyphenated MD5 strings.
+		/// The regular expression pattern used to validate hyphenated and non-hyphenated MD5 strings.
 		/// </summary>
 		public const string OptionallyHyphenatedRegexPattern = "^([0-9A-Fa-f]{2}-?){15}([0-9A-Fa-f]{2})$";
 

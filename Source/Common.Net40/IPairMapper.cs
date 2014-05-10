@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Represents a way to map between two values.

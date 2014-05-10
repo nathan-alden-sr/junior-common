@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Junior.Common
+using Junior.Common.Net35;
+
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Extensions for enumerations.

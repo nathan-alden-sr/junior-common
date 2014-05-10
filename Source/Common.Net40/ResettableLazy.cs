@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 
-namespace Junior.Common
+using Junior.Common.Net35;
+
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Encapsulates <see cref="Lazy{T}"/>, allowing it to be reset.
 	/// </summary>
 	/// <typeparam name="TLazy">A <see cref="Lazy{T}"/> or derived type.</typeparam>
 	/// <typeparam name="TValue">The type of the value to be lazy-initialized.</typeparam>
+	[DebuggerStepThrough]
 	public class ResettableLazy<TLazy, TValue>
 		where TLazy : Lazy<TValue>
 	{

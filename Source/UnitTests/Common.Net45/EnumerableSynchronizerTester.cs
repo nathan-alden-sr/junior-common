@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 
+using Junior.Common.Net45;
+
 using NUnit.Framework;
 
-namespace Junior.Common.UnitTests.Common
+namespace Junior.Common.UnitTests.Common.Net45
 {
 	public static class EnumerableSynchronizerTester
 	{

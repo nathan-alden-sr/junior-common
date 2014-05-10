@@ -8,7 +8,7 @@
     <ProjectGuid>{7B51EA7E-62CB-48E8-85CB-7ABBE0FC7647}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Junior.Common</RootNamespace>
+    <RootNamespace>Junior.Common.Net35</RootNamespace>
     <AssemblyName>Junior.Common.Net35</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -62,7 +62,6 @@
     <Compile Include="FloatToInt.cs" />
     <Compile Include="StopwatchContext.cs" />
     <Compile Include="StringHelpers.cs" />
-    <Compile Include="UnitedStatesNineDigitPostalCode.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="ComparerExtensions.cs" />
     <Compile Include="ComparerReverser.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Ranges\NullableStartLessThanOrEqualToEndRange.cs" />
     <Compile Include="Ranges\StartLessThanEndRange.cs" />
     <Compile Include="DateTimeExtensions.cs" />
-    <Compile Include="EmailAddress.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="GuidFactory.cs" />
     <Compile Include="IGuidFactory.cs" />
@@ -95,7 +93,6 @@
     <Compile Include="StringExtensions.cs" />
     <Compile Include="SystemClock.cs" />
     <Compile Include="TypeExtensions.cs" />
-    <Compile Include="UnitedStatesFiveDigitPostalCode.cs" />
     <Compile Include="XContainerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

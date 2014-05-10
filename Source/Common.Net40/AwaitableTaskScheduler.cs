@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Junior.Common
+using Junior.Common.Net35;
+
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// A task scheduler that executes queued tasks asynchronously and provides a task that completes when all queued tasks have completed.

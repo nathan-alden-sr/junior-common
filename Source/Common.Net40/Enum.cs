@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Junior.Common
+namespace Junior.Common.Net40
 {
 	/// <summary>
 	/// Generic wrapper for several <see cref="Enum"/> methods.
