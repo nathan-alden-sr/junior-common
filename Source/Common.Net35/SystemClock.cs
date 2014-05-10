@@ -12,22 +12,22 @@ namespace Junior.Common.Net35
 		/// <summary>
 		/// Gets the current local date.
 		/// </summary>
-		public DateTime LocalDate
+		public DateTimeOffset LocalDate
 		{
 			get
 			{
-				return DateTime.Today.AsLocal();
+				return DateTimeOffset.Now.Date;
 			}
 		}
 
 		/// <summary>
 		/// Gets the current local date and time.
 		/// </summary>
-		public DateTime LocalDateTime
+		public DateTimeOffset LocalDateTime
 		{
 			get
 			{
-				return DateTime.Now.AsLocal();
+				return DateTimeOffset.Now;
 			}
 		}
 
@@ -38,29 +38,29 @@ namespace Junior.Common.Net35
 		{
 			get
 			{
-				return DateTime.Now.TimeOfDay;
+				return DateTimeOffset.Now.TimeOfDay;
 			}
 		}
 
 		/// <summary>
 		/// Gets the current UTC date.
 		/// </summary>
-		public DateTime UtcDate
+		public DateTimeOffset UtcDate
 		{
 			get
 			{
-				return DateTime.UtcNow.Date.AsUtc();
+				return DateTimeOffset.UtcNow.Date;
 			}
 		}
 
 		/// <summary>
 		/// Gets the current UTC date and time.
 		/// </summary>
-		public DateTime UtcDateTime
+		public DateTimeOffset UtcDateTime
 		{
 			get
 			{
-				return DateTime.UtcNow.AsUtc();
+				return DateTimeOffset.UtcNow;
 			}
 		}
 
@@ -71,7 +71,7 @@ namespace Junior.Common.Net35
 		{
 			get
 			{
-				return DateTime.UtcNow.TimeOfDay;
+				return DateTimeOffset.UtcNow.TimeOfDay;
 			}
 		}
 	}

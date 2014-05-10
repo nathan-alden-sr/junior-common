@@ -10,7 +10,7 @@ namespace Junior.Common.Net35
 		/// <summary>
 		/// Gets the current local date.
 		/// </summary>
-		DateTime LocalDate
+		DateTimeOffset LocalDate
 		{
 			get;
 		}
@@ -18,7 +18,7 @@ namespace Junior.Common.Net35
 		/// <summary>
 		/// Gets the current local date and time.
 		/// </summary>
-		DateTime LocalDateTime
+		DateTimeOffset LocalDateTime
 		{
 			get;
 		}
@@ -34,7 +34,7 @@ namespace Junior.Common.Net35
 		/// <summary>
 		/// Gets the current UTC date.
 		/// </summary>
-		DateTime UtcDate
+		DateTimeOffset UtcDate
 		{
 			get;
 		}
@@ -42,7 +42,7 @@ namespace Junior.Common.Net35
 		/// <summary>
 		/// Gets the current UTC date and time.
 		/// </summary>
-		DateTime UtcDateTime
+		DateTimeOffset UtcDateTime
 		{
 			get;
 		}
