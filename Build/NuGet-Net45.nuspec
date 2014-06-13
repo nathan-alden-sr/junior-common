@@ -22,6 +22,6 @@
 	<files>
 		<file src="NuGet Staging\LICENSE"/>
 		<file src="NuGet Staging\README.md"/>
-		<file src="NuGet Staging\bin\Junior.Common.Net45.*" target="lib\net35"/>
+		<file src="NuGet Staging\bin\Junior.Common.Net45.*" target="lib\net45"/>
 	</files>
 </package>
