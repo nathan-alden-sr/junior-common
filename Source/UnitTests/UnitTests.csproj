@@ -51,6 +51,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common.Net35\GuidExtensionsTester.cs" />
     <Compile Include="Common.Net40\AsyncLazyTester.cs" />
     <Compile Include="Common.Net40\AwaitableTaskSchedulerTester.cs" />
     <Compile Include="Common.Net40\BinaryTreeNodeTester.cs" />

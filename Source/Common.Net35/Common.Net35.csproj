@@ -57,6 +57,7 @@
     <Compile Include="DoubleToLong.cs" />
     <Compile Include="DelegateDictionary.cs" />
     <Compile Include="CachedDelegate.cs" />
+    <Compile Include="GuidExtensions.cs" />
     <Compile Include="InvalidGenericTypeArgumentException.cs" />
     <Compile Include="NullableCachedDelegate.cs" />
     <Compile Include="FloatToInt.cs" />
