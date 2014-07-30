@@ -178,6 +178,25 @@ namespace Junior.Common.Net35
 		}
 
 		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the specified value is null; otherwise, returns the value.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentNullExceptionMessage">The exception message to use when throwing an <see cref="ArgumentNullException"/>.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+		/// <returns>the specified value</returns>
+		public static T EnsureNotNull<T>(this T value, string paramName, string argumentNullExceptionMessage)
+			where T : class
+		{
+			if (value == null)
+			{
+				throw new ArgumentNullException(paramName, argumentNullExceptionMessage);
+			}
+
+			return value;
+		}
+
+		/// <summary>
 		/// Retrieves an enumerable consisting of the single element <paramref name="value"/>.
 		/// </summary>
 		/// <param name="value">A value.</param>

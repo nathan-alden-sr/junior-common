@@ -30,12 +30,34 @@ namespace Junior.Common.UnitTests.Common.Net35
 		}
 
 		[TestFixture]
+		public class When_calling_EnsureNotNull_on_non_null_parameter_and_specifying_message
+		{
+			[Test]
+			public void Must_return_value()
+			{
+				object value = 0;
+
+				Assert.That(value.EnsureNotNull("value", "message"), Is.EqualTo(0));
+			}
+		}
+
+		[TestFixture]
 		public class When_calling_EnsureNotNull_on_null_parameter
 		{
 			[Test]
 			public void Must_throw_exception()
 			{
 				Assert.Throws<ArgumentNullException>(() => ((object)null).EnsureNotNull("value"));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNull_on_null_parameter_and_specifying_message
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				Assert.Throws<ArgumentNullException>(() => ((object)null).EnsureNotNull("value", "message"), "message");
 			}
 		}
 
