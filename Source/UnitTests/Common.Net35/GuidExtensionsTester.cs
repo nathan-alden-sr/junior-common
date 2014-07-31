@@ -9,7 +9,7 @@ namespace Junior.Common.UnitTests.Common.Net35
 	public static class GuidExtensionsTester
 	{
 		[TestFixture]
-		public class When_calling_EnsureNotNull_on_non_null_parameter
+		public class When_calling_EnsureNotEmpty_on_non_null_parameter
 		{
 			[Test]
 			public void Must_return_value()
@@ -21,12 +21,14 @@ namespace Junior.Common.UnitTests.Common.Net35
 		}
 
 		[TestFixture]
-		public class When_calling_EnsureNotNull_on_null_parameter
+		public class When_calling_EnsureNotEmpty_on_null_parameter
 		{
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentException>(() => Guid.Empty.EnsureNotEmpty("value"));
+				var exception = Assert.Throws<ArgumentException>(() => Guid.Empty.EnsureNotEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 	}

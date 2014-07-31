@@ -92,7 +92,7 @@ namespace Junior.Common.Net35
 		/// Hashes the specified value and returns an <see cref="Md5String"/>.
 		/// </summary>
 		/// <param name="value">A value to hash.</param>
-		/// <returns>an <see cref="Md5String"/> containing the hashed value.</returns>
+		/// <returns>An <see cref="Md5String"/> containing the hashed value.</returns>
 		/// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
 		public static Md5String FromNonHashed(string value)
 		{
@@ -106,7 +106,7 @@ namespace Junior.Common.Net35
 		/// </summary>
 		/// <param name="value">An MD5 string.</param>
 		/// <param name="format">The allowed formats for <paramref name="value"/>.</param>
-		/// <returns>an <see cref="Md5String"/> containing <paramref name="value"/>.</returns>
+		/// <returns>An <see cref="Md5String"/> containing <paramref name="value"/>.</returns>
 		/// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
 		/// <exception cref="ArgumentException">Thrown if <paramref name="value"/> does not validate against <paramref name="format"/>.</exception>
 		/// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="format"/> has an unexpected value.</exception>

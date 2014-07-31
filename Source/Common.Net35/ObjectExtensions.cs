@@ -150,31 +150,14 @@ namespace Junior.Common.Net35
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <param name="paramName">The value's parameter name.</param>
+		/// <param name="argumentNullExceptionMessage">The exception message to use when throwing an <see cref="ArgumentNullException"/>.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-		public static void ThrowIfNull(this object value, string paramName)
+		public static void ThrowIfNull(this object value, string paramName, string argumentNullExceptionMessage = null)
 		{
 			if (value == null)
 			{
-				throw new ArgumentNullException(paramName);
+				throw argumentNullExceptionMessage != null ? new ArgumentNullException(paramName, argumentNullExceptionMessage) : new ArgumentNullException(paramName);
 			}
-		}
-
-		/// <summary>
-		/// Throws an <see cref="ArgumentNullException"/> if the specified value is null; otherwise, returns the value.
-		/// </summary>
-		/// <param name="value">A value.</param>
-		/// <param name="paramName">The value's parameter name.</param>
-		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-		/// <returns>the specified value</returns>
-		public static T EnsureNotNull<T>(this T value, string paramName)
-			where T : class
-		{
-			if (value == null)
-			{
-				throw new ArgumentNullException(paramName);
-			}
-
-			return value;
 		}
 
 		/// <summary>
@@ -184,14 +167,11 @@ namespace Junior.Common.Net35
 		/// <param name="paramName">The value's parameter name.</param>
 		/// <param name="argumentNullExceptionMessage">The exception message to use when throwing an <see cref="ArgumentNullException"/>.</param>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-		/// <returns>the specified value</returns>
-		public static T EnsureNotNull<T>(this T value, string paramName, string argumentNullExceptionMessage)
+		/// <returns>The specified value.</returns>
+		public static T EnsureNotNull<T>(this T value, string paramName, string argumentNullExceptionMessage = null)
 			where T : class
 		{
-			if (value == null)
-			{
-				throw new ArgumentNullException(paramName, argumentNullExceptionMessage);
-			}
+			value.ThrowIfNull(paramName, argumentNullExceptionMessage);
 
 			return value;
 		}

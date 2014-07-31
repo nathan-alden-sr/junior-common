@@ -21,14 +21,15 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentException>(() => "".EnsureNotEmpty("value"));
+				var exception = Assert.Throws<ArgumentException>(() => "".EnsureNotEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
 		[TestFixture]
 		public class When_calling_EnsureNotEmpty_on_valid_parameter
 		{
-			[Test]
 			[TestCase("foo")]
 			[TestCase("a")]
 			[TestCase(" ")]
@@ -45,7 +46,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentException>(() => "".EnsureNotNullOrEmpty("value"));
+				var exception = Assert.Throws<ArgumentException>(() => "".EnsureNotNullOrEmpty("value", null, "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -55,14 +58,15 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentNullException>(() => ((string)null).EnsureNotNullOrEmpty("value"));
+				var exception = Assert.Throws<ArgumentNullException>(() => ((string)null).EnsureNotNullOrEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
 		[TestFixture]
 		public class When_calling_EnsureNotNullOrEmpty_on_valid_parameter
 		{
-			[Test]
 			[TestCase("foo")]
 			[TestCase("a")]
 			[TestCase(" ")]
@@ -75,12 +79,13 @@ namespace Junior.Common.UnitTests.Common.Net35
 		[TestFixture]
 		public class When_calling_EnsureNotNullOrWhitespace_on_empty_or_whitespace_parameter
 		{
-			[Test]
 			[TestCase("")]
 			[TestCase(" ")]
 			public void Must_throw_exception(string value)
 			{
-				Assert.Throws<ArgumentException>(() => value.EnsureNotNullOrWhitespace("value"));
+				var exception = Assert.Throws<ArgumentException>(() => value.EnsureNotNullOrWhitespace("value", null, "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -90,7 +95,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentNullException>(() => ((string)null).EnsureNotNullOrWhitespace("value"));
+				var exception = Assert.Throws<ArgumentNullException>(() => ((string)null).EnsureNotNullOrWhitespace("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -114,7 +121,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[TestCase(" ")]
 			public void Must_throw_exception(string value)
 			{
-				Assert.Throws<ArgumentException>(() => value.EnsureNotWhitespace("value"));
+				var exception = Assert.Throws<ArgumentException>(() => value.EnsureNotWhitespace("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -137,7 +146,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentException>(() => "".ThrowIfEmpty("value"));
+				var exception = Assert.Throws<ArgumentException>(() => "".ThrowIfEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -161,7 +172,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentException>(() => "".ThrowIfNullOrEmpty("value"));
+				var exception = Assert.Throws<ArgumentException>(() => "".ThrowIfNullOrEmpty("value", null, "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -171,7 +184,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentNullException>(() => ((string)null).ThrowIfNullOrEmpty("value"));
+				var exception = Assert.Throws<ArgumentNullException>(() => ((string)null).ThrowIfNullOrEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -196,7 +211,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[TestCase(" ")]
 			public void Must_throw_exception(string value)
 			{
-				Assert.Throws<ArgumentException>(() => value.ThrowIfNullOrWhitespace("value"));
+				var exception = Assert.Throws<ArgumentException>(() => value.ThrowIfNullOrWhitespace("value", null, "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -206,7 +223,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[Test]
 			public void Must_throw_exception()
 			{
-				Assert.Throws<ArgumentNullException>(() => ((string)null).ThrowIfNullOrWhitespace("value"));
+				var exception = Assert.Throws<ArgumentNullException>(() => ((string)null).ThrowIfNullOrWhitespace("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 
@@ -230,7 +249,9 @@ namespace Junior.Common.UnitTests.Common.Net35
 			[TestCase(" ")]
 			public void Must_throw_exception(string value)
 			{
-				Assert.Throws<ArgumentException>(() => value.ThrowIfWhitespace("value"));
+				var exception = Assert.Throws<ArgumentException>(() => value.ThrowIfWhitespace("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
 			}
 		}
 

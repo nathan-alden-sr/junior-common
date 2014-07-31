@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +10,114 @@ namespace Junior.Common.UnitTests.Common.Net35
 {
 	public static class EnumerableExtensionTester
 	{
+		[TestFixture]
+		public class When_calling_EnsureNotEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				IEnumerable<object> value = new object[0];
+
+				var exception = Assert.Throws<ArgumentException>(() => value.EnsureNotEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotEmpty_on_valid_parameter
+		{
+			[Test]
+			public void Must_return_value()
+			{
+				IEnumerable<object> value = new object[] { 0 };
+
+				Assert.That(value.EnsureNotEmpty("value"), Is.SameAs(value));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				IEnumerable<object> value = new object[0];
+
+				var exception = Assert.Throws<ArgumentException>(() => value.EnsureNotNullOrEmpty("value", null, "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrEmpty_on_null_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				IEnumerable<object> value = null;
+
+				// ReSharper disable once ExpressionIsAlwaysNull
+				var exception = Assert.Throws<ArgumentNullException>(() => value.EnsureNotNullOrEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_EnsureNotNullOrEmpty_on_valid_parameter
+		{
+			[Test]
+			public void Must_return_value()
+			{
+				IEnumerable<object> value = new object[] { 0 };
+
+				Assert.That(value.EnsureNotNullOrEmpty("value"), Is.SameAs(value));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrEmpty_on_empty_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				IEnumerable<object> value = new object[0];
+
+				var exception = Assert.Throws<ArgumentException>(() => value.ThrowIfNullOrEmpty("value", null, "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrEmpty_on_null_parameter
+		{
+			[Test]
+			public void Must_throw_exception()
+			{
+				IEnumerable<object> value = null;
+
+				// ReSharper disable once ExpressionIsAlwaysNull
+				var exception = Assert.Throws<ArgumentNullException>(() => value.ThrowIfNullOrEmpty("value", "message"));
+
+				Assert.That(exception.Message, Is.EqualTo(String.Format("message{0}Parameter name: value", Environment.NewLine)));
+			}
+		}
+
+		[TestFixture]
+		public class When_calling_ThrowIfNullOrEmpty_on_valid_parameter
+		{
+			[Test]
+			public void Must_not_throw_exception()
+			{
+				IEnumerable<object> value = new object[] { 0 };
+
+				Assert.DoesNotThrow(() => value.ThrowIfNullOrEmpty("value"));
+			}
+		}
+
 		[TestFixture]
 		public class When_converting_empty_enumerable_to_empty
 		{

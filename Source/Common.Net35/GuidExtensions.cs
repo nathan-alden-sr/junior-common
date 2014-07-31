@@ -8,16 +8,19 @@ namespace Junior.Common.Net35
 	public static class GuidExtensions
 	{
 		/// <summary>
-		/// Throws an <see cref="ArgumentException"/> if the specified value is <see cref="Guid.Empty"/>; otherwise, returns the value.
+		/// Throws an <see cref="ArgumentException"/> if the specified value is <see cref="Guid.Empty"/>.
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <param name="paramName">The value's parameter name.</param>
-		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see cref="Guid.Empty"/>.</exception>
-		/// <returns>the specified value</returns>
-		[Obsolete("Use GuidExtensions.EnsureNotEmpty")]
-		public static Guid EnsureNotNull(this Guid value, string paramName)
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is <see cref="Guid.Empty"/>.</exception>
+		/// <returns>The specified value.</returns>
+		public static void ThrowIfEmpty(this Guid value, string paramName, string argumentExceptionMessage = "GUID cannot be empty.")
 		{
-			return EnsureNotEmpty(value, paramName);
+			if (value == Guid.Empty)
+			{
+				throw new ArgumentException(argumentExceptionMessage, paramName);
+			}
 		}
 
 		/// <summary>
@@ -25,14 +28,12 @@ namespace Junior.Common.Net35
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <param name="paramName">The value's parameter name.</param>
-		/// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see cref="Guid.Empty"/>.</exception>
-		/// <returns>the specified value</returns>
-		public static Guid EnsureNotEmpty(this Guid value, string paramName)
+		/// <param name="argumentExceptionMessage">The exception message to use when throwing an <see cref="ArgumentException"/>.</param>
+		/// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is <see cref="Guid.Empty"/>.</exception>
+		/// <returns>The specified value.</returns>
+		public static Guid EnsureNotEmpty(this Guid value, string paramName, string argumentExceptionMessage = "GUID cannot be empty.")
 		{
-			if (value == Guid.Empty)
-			{
-				throw new ArgumentException("Value cannot be empty.", paramName);
-			}
+			value.ThrowIfEmpty(paramName, argumentExceptionMessage);
 
 			return value;
 		}
