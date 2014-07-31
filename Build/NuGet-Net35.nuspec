@@ -7,7 +7,7 @@
 		<authors>Nathan Alden Sr.</authors>
 		<description>Junior.Common is a common library used by all other Junior projects.</description>
 		<releaseNotes></releaseNotes>
-		<projectUrl>https://github.com/NathanAlden/JuniorCommon</projectUrl>
+		<projectUrl>https://github.com/nathan-alden/junior-common</projectUrl>
 		<dependencies/>
 		<references>
 			<reference file="Junior.Common.Net35.dll"/>
