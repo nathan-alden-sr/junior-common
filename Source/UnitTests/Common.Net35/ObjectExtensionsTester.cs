@@ -1050,6 +1050,66 @@ namespace Junior.Common.UnitTests.Common.Net35
 		}
 
 		[TestFixture]
+		public class When_executing_delegate_on_non_null_nullable_type
+		{
+			[Test]
+			public void Must_execute_delegate()
+			{
+				bool executed = false;
+
+				((int?)0).IfNotNull<int>(arg => executed = true);
+
+				Assert.That(executed, Is.True);
+			}
+		}
+
+		[TestFixture]
+		public class When_executing_delegate_on_non_null_reference_type
+		{
+			[Test]
+			public void Must_execute_delegate()
+			{
+				bool executed = false;
+
+				"".IfNotNull(arg => executed = true);
+
+				Assert.That(executed, Is.True);
+			}
+		}
+
+		[TestFixture]
+		public class When_executing_delegate_on_null_nullable_type
+		{
+			[Test]
+			public void Must_not_execute_delegate()
+			{
+				int? value = null;
+				bool executed = false;
+
+				// ReSharper disable once ExpressionIsAlwaysNull
+				value.IfNotNull<int>(arg => executed = true);
+
+				Assert.That(executed, Is.False);
+			}
+		}
+
+		[TestFixture]
+		public class When_executing_delegate_on_null_reference_type
+		{
+			[Test]
+			public void Must_not_execute_delegate()
+			{
+				object value = null;
+				bool executed = false;
+
+				// ReSharper disable once ExpressionIsAlwaysNull
+				value.IfNotNull(arg => executed = true);
+
+				Assert.That(executed, Is.False);
+			}
+		}
+
+		[TestFixture]
 		public class When_getting_item_from_enumerable_by_maximum_property_value
 		{
 			[Test]

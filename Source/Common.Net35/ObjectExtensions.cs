@@ -119,6 +119,40 @@ namespace Junior.Common.Net35
 		/// Invokes the specified delegate if the specified value is not null.
 		/// </summary>
 		/// <param name="value">A value.</param>
+		/// <param name="delegate">A <see cref="Action{TValue}"/> to invoke if <paramref name="value"/> is not null.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="delegate"/> is null.</exception>
+		public static void IfNotNull<TValue>(this TValue value, Action<TValue> @delegate)
+			where TValue : class
+		{
+			@delegate.ThrowIfNull("delegate");
+
+			if (value != null)
+			{
+				@delegate(value);
+			}
+		}
+
+		/// <summary>
+		/// Invokes the specified delegate if the specified value is not null.
+		/// </summary>
+		/// <param name="value">A value.</param>
+		/// <param name="delegate">A <see cref="Action{TValue}"/> to invoke if <paramref name="value"/> is not null.</param>
+		/// <exception cref="ArgumentNullException">Thrown when <paramref name="delegate"/> is null.</exception>
+		public static void IfNotNull<TValue>(this TValue? value, Action<TValue> @delegate)
+			where TValue : struct
+		{
+			@delegate.ThrowIfNull("delegate");
+
+			if (value != null)
+			{
+				@delegate(value.Value);
+			}
+		}
+
+		/// <summary>
+		/// Invokes the specified delegate if the specified value is not null.
+		/// </summary>
+		/// <param name="value">A value.</param>
 		/// <param name="delegate">A <see cref="Func{TValue,TResult}"/> to invoke if <paramref name="value"/> is not null.</param>
 		/// <returns>The result of <paramref name="delegate"/> if <paramref name="value"/> is not null; otherwise, null.</returns>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="delegate"/> is null.</exception>
