@@ -10,8 +10,8 @@
 		<projectUrl>https://github.com/nathan-alden/junior-common</projectUrl>
 		<dependencies>
 			<group>
-				<dependency id="Junior.Common.Net35" version="[6.0.0,7)"/>
-				<dependency id="Junior.Common.Net40" version="[6.0.0,7)"/>
+				<dependency id="Junior.Common.Net35" version="[7,8)"/>
+				<dependency id="Junior.Common.Net40" version="[7,8)"/>
 			</group>
 		</dependencies>
 		<references>

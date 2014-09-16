@@ -154,14 +154,15 @@ namespace Junior.Common.Net35
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <param name="delegate">A <see cref="Func{TValue,TResult}"/> to invoke if <paramref name="value"/> is not null.</param>
+		/// <param name="default">The value to return when <paramref name="value"/> is null.</param>
 		/// <returns>The result of <paramref name="delegate"/> if <paramref name="value"/> is not null; otherwise, null.</returns>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="delegate"/> is null.</exception>
-		public static TResult IfNotNull<TValue, TResult>(this TValue value, Func<TValue, TResult> @delegate)
+		public static TResult IfNotNull<TValue, TResult>(this TValue value, Func<TValue, TResult> @delegate, TResult @default = default(TResult))
 			where TValue : class
 		{
 			@delegate.ThrowIfNull("delegate");
 
-			return value != null ? @delegate(value) : default(TResult);
+			return value != null ? @delegate(value) : @default;
 		}
 
 		/// <summary>
@@ -169,14 +170,15 @@ namespace Junior.Common.Net35
 		/// </summary>
 		/// <param name="value">A value.</param>
 		/// <param name="delegate">A <see cref="Func{TValue,TResult}"/> to invoke if <paramref name="value"/> is not null.</param>
+		/// <param name="default">The value to return when <paramref name="value"/> is null.</param>
 		/// <returns>The result of <paramref name="delegate"/> if <paramref name="value"/> is not null; otherwise, null.</returns>
 		/// <exception cref="ArgumentNullException">Thrown when <paramref name="delegate"/> is null.</exception>
-		public static TResult IfNotNull<TValue, TResult>(this TValue? value, Func<TValue, TResult> @delegate)
+		public static TResult IfNotNull<TValue, TResult>(this TValue? value, Func<TValue, TResult> @delegate, TResult @default = default(TResult))
 			where TValue : struct
 		{
 			@delegate.ThrowIfNull("delegate");
 
-			return value != null ? @delegate(value.Value) : default(TResult);
+			return value != null ? @delegate(value.Value) : @default;
 		}
 
 		/// <summary>

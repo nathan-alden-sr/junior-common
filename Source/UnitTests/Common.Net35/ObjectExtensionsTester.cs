@@ -1020,10 +1020,12 @@ namespace Junior.Common.UnitTests.Common.Net35
 		[TestFixture]
 		public class When_creating_if_not_null_chain_with_first_reference_of_null
 		{
-			[Test]
-			public void Must_return_null()
+			[TestCase(null)]
+			[TestCase(5)]
+			[TestCase("Test")]
+			public void Must_return_default_value(object @default)
 			{
-				Assert.That(((object)null).IfNotNull(@class => @class.ToString()), Is.Null);
+				Assert.That(((object)null).IfNotNull(@class => @class.ToString(), @default), Is.EqualTo(@default));
 			}
 		}
 
